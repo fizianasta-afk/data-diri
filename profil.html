@@ -3,189 +3,243 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Edit Data Diri</title>
+<title>Profil & Pengaturan</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        body {
+body {
 
-            min-height: 100vh;
+    min-height: 100vh;
 
-            background: linear-gradient(
-                135deg,
-                #667eea,
-                #764ba2
-            );
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
 
-            padding: 25px;
+    padding: 25px;
 
-        }
+}
 
-        .container {
+.container {
 
-            width: 100%;
-            max-width: 600px;
+    width: 100%;
 
-            margin: auto;
+    max-width: 650px;
 
-        }
+    margin: auto;
 
-        .box {
+}
 
-            background: white;
+.box {
 
-            padding: 30px;
+    background: white;
 
-            border-radius: 20px;
+    padding: 30px;
 
-            box-shadow:
-                0 15px 40px rgba(0,0,0,0.2);
+    border-radius: 22px;
 
-        }
+    box-shadow:
+        0 20px 50px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
 
-        .icon {
+}
 
-            text-align: center;
+.icon {
 
-            font-size: 55px;
+    text-align: center;
 
-            margin-bottom: 10px;
+    font-size: 60px;
 
-        }
+    margin-bottom: 10px;
 
-        h1 {
+}
 
-            text-align: center;
+h1 {
 
-            color: #333;
+    text-align: center;
 
-            margin-bottom: 8px;
+    color: #333;
 
-        }
+    margin-bottom: 8px;
 
-        .subtitle {
+}
 
-            text-align: center;
+.subtitle {
 
-            color: #777;
+    text-align: center;
 
-            margin-bottom: 25px;
+    color: #777;
 
-        }
+    margin-bottom: 25px;
 
-        label {
+}
 
-            display: block;
+.section {
 
-            margin-top: 15px;
+    margin-top: 25px;
 
-            margin-bottom: 7px;
+    padding-top: 20px;
 
-            font-weight: bold;
+    border-top: 1px solid #eee;
 
-            color: #333;
+}
 
-        }
+.section h2 {
 
-        input {
+    color: #667eea;
 
-            width: 100%;
+    margin-bottom: 15px;
 
-            padding: 13px;
+    font-size: 20px;
 
-            border: 1px solid #ddd;
+}
 
-            border-radius: 10px;
+label {
 
-            outline: none;
+    display: block;
 
-            font-size: 15px;
+    margin-top: 14px;
 
-        }
+    margin-bottom: 7px;
 
-        input:focus {
+    font-weight: bold;
 
-            border-color: #667eea;
+    color: #333;
 
-        }
+}
 
-        button {
+.input-group {
 
-            width: 100%;
+    display: flex;
 
-            padding: 14px;
+    gap: 8px;
 
-            margin-top: 20px;
+}
 
-            border: none;
+.input-group input {
 
-            border-radius: 10px;
+    flex: 1;
 
-            background: #667eea;
+}
 
-            color: white;
+input {
 
-            font-size: 16px;
+    width: 100%;
 
-            font-weight: bold;
+    padding: 13px;
 
-            cursor: pointer;
+    border: 1px solid #ddd;
 
-        }
+    border-radius: 10px;
 
-        button:hover {
+    outline: none;
 
-            background: #5568d9;
+    font-size: 15px;
 
-        }
+}
 
-        .back {
+input:focus {
 
-            background: #333;
+    border-color: #667eea;
 
-        }
+}
 
-        .danger {
+.show {
 
-            background: #e74c3c;
+    width: auto;
 
-        }
+    margin: 0;
 
-        .danger:hover {
+    padding: 10px 14px;
 
-            background: #c0392b;
+    background: #777;
 
-        }
+}
 
-        .info {
+button {
 
-            background: #f3f4ff;
+    width: 100%;
 
-            padding: 15px;
+    padding: 14px;
 
-            border-radius: 10px;
+    margin-top: 18px;
 
-            margin-top: 20px;
+    border: none;
 
-            color: #555;
+    border-radius: 11px;
 
-            font-size: 14px;
+    background: #667eea;
 
-        }
+    color: white;
 
-    </style>
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+button:hover {
+
+    background: #5568d9;
+
+}
+
+.save-pin {
+
+    background: #2ecc71;
+
+}
+
+.back {
+
+    background: #333;
+
+}
+
+.info {
+
+    background: #f3f4ff;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-top: 15px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+.danger {
+
+    background: #e74c3c;
+
+}
+
+</style>
 
 </head>
 
@@ -195,140 +249,221 @@
 
 <div class="container">
 
-    <div class="box">
+<div class="box">
 
 
-        <div class="icon">
-            👤
-        </div>
+<div class="icon">
+👤
+</div>
 
 
-        <h1>
-            Edit Data Diri
-        </h1>
+<h1>
+Profil & Pengaturan
+</h1>
 
 
-        <p class="subtitle">
-            Ubah informasi pribadi kamu
-        </p>
+<p class="subtitle">
+Kelola data diri dan keamanan akun
+</p>
 
 
-        <form id="profilForm">
+<!-- DATA DIRI -->
+
+<div class="section">
+
+<h2>
+👤 Data Diri
+</h2>
 
 
-            <label>
-                Nama
-            </label>
-
-            <input
-                type="text"
-                id="nama"
-                required
-            >
+<form id="profilForm">
 
 
-            <label>
-                Sekolah
-            </label>
+<label>
+Nama
+</label>
 
-            <input
-                type="text"
-                id="sekolah"
-                required
-            >
-
-
-            <label>
-                Umur
-            </label>
-
-            <input
-                type="number"
-                id="umur"
-                min="1"
-                max="100"
-                required
-            >
+<input
+    type="text"
+    id="nama"
+    required
+>
 
 
-            <label>
-                Cita-cita
-            </label>
+<label>
+Sekolah
+</label>
 
-            <input
-                type="text"
-                id="cita"
-                required
-            >
-
-
-            <label>
-                Hobi
-            </label>
-
-            <input
-                type="text"
-                id="hobi"
-                required
-            >
+<input
+    type="text"
+    id="sekolah"
+    required
+>
 
 
-            <label>
-                Email
-            </label>
+<label>
+Umur
+</label>
 
-            <input
-                type="email"
-                id="email"
-                required
-            >
-
-
-            <label>
-                Password
-            </label>
-
-            <input
-                type="password"
-                id="password"
-                required
-            >
+<input
+    type="number"
+    id="umur"
+    min="1"
+    max="100"
+    required
+>
 
 
-            <div class="info">
+<label>
+Cita-cita
+</label>
 
-                🔐 PIN Jadwal dan PIN Edit Jadwal
-                tidak diubah di halaman ini.
-
-                <br><br>
-
-                PIN tersebut tetap digunakan
-                untuk mengamankan jadwal kamu.
-
-            </div>
+<input
+    type="text"
+    id="cita"
+    required
+>
 
 
-            <button type="submit">
+<label>
+Hobi
+</label>
 
-                💾 SIMPAN PERUBAHAN
-
-            </button>
-
-
-        </form>
-
-
-        <button
-            class="back"
-            onclick="kembali()"
-        >
-
-            ← KEMBALI KE DASHBOARD
-
-        </button>
+<input
+    type="text"
+    id="hobi"
+    required
+>
 
 
-    </div>
+<label>
+Email
+</label>
+
+<input
+    type="email"
+    id="email"
+    required
+>
+
+
+<label>
+Password
+</label>
+
+<input
+    type="password"
+    id="password"
+    required
+>
+
+
+<button type="submit">
+
+💾 SIMPAN DATA DIRI
+
+</button>
+
+
+</form>
+
+</div>
+
+
+<!-- PIN -->
+
+<div class="section">
+
+<h2>
+🔐 Ganti PIN
+</h2>
+
+
+<div class="info">
+
+PIN digunakan untuk melindungi
+halaman Jadwal dan Edit Jadwal.
+
+<br><br>
+
+Gunakan PIN yang mudah kamu ingat,
+tetapi jangan berikan kepada orang lain.
+
+</div>
+
+
+<label>
+PIN Jadwal Sekarang
+</label>
+
+<div class="input-group">
+
+<input
+    type="password"
+    id="pinJadwal"
+    maxlength="6"
+    inputmode="numeric"
+>
+
+<button
+    type="button"
+    class="show"
+    onclick="lihatPIN('pinJadwal')"
+>
+👁️
+</button>
+
+</div>
+
+
+<label>
+PIN Edit Jadwal Sekarang
+</label>
+
+<div class="input-group">
+
+<input
+    type="password"
+    id="pinEdit"
+    maxlength="6"
+    inputmode="numeric"
+>
+
+<button
+    type="button"
+    class="show"
+    onclick="lihatPIN('pinEdit')"
+>
+👁️
+</button>
+
+</div>
+
+
+<button
+    class="save-pin"
+    onclick="simpanPIN()"
+>
+
+🔐 SIMPAN PIN BARU
+
+</button>
+
+
+</div>
+
+
+<button
+    class="back"
+    onclick="kembali()"
+>
+
+← KEMBALI KE DASHBOARD
+
+</button>
+
+
+</div>
 
 </div>
 
@@ -362,7 +497,7 @@ let data =
 if (!data) {
 
     alert(
-        "❌ Data diri tidak ditemukan."
+        "❌ Data akun tidak ditemukan."
     );
 
     window.location.href =
@@ -371,44 +506,65 @@ if (!data) {
 }
 
 
-/* TAMPILKAN DATA */
+/* DATA DIRI */
 
 document.getElementById(
     "nama"
-).value = data.nama || "";
+).value =
+    data.nama || "";
 
 
 document.getElementById(
     "sekolah"
-).value = data.sekolah || "";
+).value =
+    data.sekolah || "";
 
 
 document.getElementById(
     "umur"
-).value = data.umur || "";
+).value =
+    data.umur || "";
 
 
 document.getElementById(
     "cita"
-).value = data.cita || "";
+).value =
+    data.cita || "";
 
 
 document.getElementById(
     "hobi"
-).value = data.hobi || "";
+).value =
+    data.hobi || "";
 
 
 document.getElementById(
     "email"
-).value = data.email || "";
+).value =
+    data.email || "";
 
 
 document.getElementById(
     "password"
-).value = data.password || "";
+).value =
+    data.password || "";
 
 
-/* SIMPAN */
+/* PIN */
+
+document.getElementById(
+    "pinJadwal"
+).value =
+    data.pinJadwal || "";
+
+
+document.getElementById(
+    "pinEdit"
+).value =
+    data.pinEdit || "";
+
+
+/* SIMPAN DATA DIRI */
 
 document
 .getElementById("profilForm")
@@ -468,15 +624,123 @@ document
 
 
         alert(
-            "✅ Data diri berhasil diperbarui!"
+            "✅ Data diri berhasil disimpan!"
         );
-
-
-        window.location.href =
-            "dashboard.html";
 
     }
 );
+
+
+/* SIMPAN PIN */
+
+function simpanPIN() {
+
+
+    const pinJadwal =
+        document.getElementById(
+            "pinJadwal"
+        ).value;
+
+
+    const pinEdit =
+        document.getElementById(
+            "pinEdit"
+        ).value;
+
+
+    /* VALIDASI */
+
+    if (
+        !/^[0-9]{4,6}$/.test(
+            pinJadwal
+        )
+    ) {
+
+        alert(
+            "❌ PIN Jadwal harus 4-6 angka."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !/^[0-9]{4,6}$/.test(
+            pinEdit
+        )
+    ) {
+
+        alert(
+            "❌ PIN Edit harus 4-6 angka."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        pinJadwal === pinEdit
+    ) {
+
+        alert(
+            "⚠️ Sebaiknya PIN Jadwal dan PIN Edit berbeda."
+        );
+
+        return;
+
+    }
+
+
+    data.pinJadwal =
+        pinJadwal;
+
+
+    data.pinEdit =
+        pinEdit;
+
+
+    localStorage.setItem(
+        "dataDiri",
+        JSON.stringify(data)
+    );
+
+
+    alert(
+        "✅ PIN berhasil diperbarui!"
+    );
+
+}
+
+
+/* LIHAT PIN */
+
+function lihatPIN(id) {
+
+    const input =
+        document.getElementById(
+            id
+        );
+
+
+    if (
+        input.type === "password"
+    ) {
+
+        input.type =
+            "text";
+
+    }
+
+    else {
+
+        input.type =
+            "password";
+
+    }
+
+}
 
 
 /* KEMBALI */
@@ -487,7 +751,6 @@ function kembali() {
         "dashboard.html";
 
 }
-
 
 </script>
 
