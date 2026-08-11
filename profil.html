@@ -11,7 +11,110 @@
 <title>Profil & Pengaturan</title>
 
 <style>
+      .profile-photo {
 
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+}
+
+.profile-photo img {
+
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 5px 20px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+
+    display: none;
+
+}
+
+.dashboard-foto-kosong {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: #f1f3f9;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 55px;
+
+}
+.photo-area {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 20px 0;
+
+}
+
+.photo-area img {
+
+    width: 150px;
+
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #667eea;
+
+    display: none;
+
+}
+
+.foto-kosong {
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    background: #f1f3f9;
+
+    border: 5px solid #667eea;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 70px;
+
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -270,6 +373,50 @@ Kelola data diri dan keamanan akun
 <!-- DATA DIRI -->
 
 <div class="section">
+
+    <h2>
+        📷 Foto Profil
+    </h2>
+
+    <div class="photo-area">
+
+        <img
+            id="fotoPreview"
+            src=""
+            alt="Foto Profil"
+        >
+
+        <div
+            id="fotoKosong"
+            class="foto-kosong"
+        >
+            👤
+        </div>
+
+    </div>
+
+    <input
+        type="file"
+        id="fotoInput"
+        accept="image/png,image/jpeg,image/webp"
+    >
+
+    <button
+        type="button"
+        onclick="simpanFoto()"
+    >
+        📷 SIMPAN FOTO
+    </button>
+
+    <button
+        type="button"
+        class="danger"
+        onclick="hapusFoto()"
+    >
+        🗑️ HAPUS FOTO
+    </button>
+
+</div>
 
 <h2>
 👤 Data Diri
@@ -751,7 +898,370 @@ function kembali() {
         "dashboard.html";
 
 }
+/* =========================
+   FOTO PROFIL
+========================= */
 
+const fotoInput =
+    document.getElementById(
+        "fotoInput"
+    );
+
+const fotoPreview =
+    document.getElementById(
+        "fotoPreview"
+    );
+
+const fotoKosong =
+    document.getElementById(
+        "fotoKosong"
+    );
+
+
+/* DATABASE FOTO */
+
+let fotoDB;
+
+
+const fotoRequest =
+    indexedDB.open(
+        "DataDiriFotoDB",
+        1
+    );
+
+
+fotoRequest.onupgradeneeded =
+    function(event) {
+
+        fotoDB =
+            event.target.result;
+
+        if (
+            !fotoDB.objectStoreNames.contains(
+                "foto"
+            )
+        ) {
+
+            fotoDB.createObjectStore(
+                "foto",
+                {
+                    keyPath: "id"
+                }
+            );
+
+        }
+
+    };
+
+
+fotoRequest.onsuccess =
+    function(event) {
+
+        fotoDB =
+            event.target.result;
+
+        tampilkanFoto();
+
+    };
+
+
+/* SIMPAN FOTO */
+
+function simpanFoto() {
+
+    const file =
+        fotoInput.files[0];
+
+
+    if (!file) {
+
+        alert(
+            "⚠️ Pilih foto terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !file.type.startsWith(
+            "image/"
+        )
+    ) {
+
+        alert(
+            "❌ File harus berupa gambar."
+        );
+
+        return;
+
+    }
+
+
+    const transaction =
+        fotoDB.transaction(
+            ["foto"],
+            "readwrite"
+        );
+
+
+    const store =
+        transaction.objectStore(
+            "foto"
+        );
+
+
+    store.put({
+
+        id: "profil",
+
+        file: file
+
+    });
+
+
+    transaction.oncomplete =
+        function() {
+
+            alert(
+                "✅ Foto profil berhasil disimpan!"
+            );
+
+            tampilkanFoto();
+
+        };
+
+}
+
+
+/* TAMPILKAN FOTO */
+
+function tampilkanFoto() {
+
+    if (!fotoDB) {
+
+        return;
+
+    }
+
+
+    const transaction =
+        fotoDB.transaction(
+            ["foto"],
+            "readonly"
+        );
+
+
+    const store =
+        transaction.objectStore(
+            "foto"
+        );
+
+
+    const request =
+        store.get(
+            "profil"
+        );
+
+
+    request.onsuccess =
+        function() {
+
+            const data =
+                request.result;
+
+
+            if (!data) {
+
+                fotoPreview.style.display =
+                    "none";
+
+                fotoKosong.style.display =
+                    "flex";
+
+                return;
+
+            }
+
+
+            const url =
+                URL.createObjectURL(
+                    data.file
+                );
+
+
+            fotoPreview.src =
+                url;
+
+
+            fotoPreview.style.display =
+                "block";
+
+
+            fotoKosong.style.display =
+                "none";
+
+        };
+
+}
+
+
+/* HAPUS FOTO */
+
+function hapusFoto() {
+
+    const yakin =
+        confirm(
+            "Apakah kamu yakin ingin menghapus foto?"
+        );
+
+
+    if (!yakin) {
+
+        return;
+
+    }
+
+
+    const transaction =
+        fotoDB.transaction(
+            ["foto"],
+            "readwrite"
+        );
+
+
+    const store =
+        transaction.objectStore(
+            "foto"
+        );
+
+
+    store.delete(
+        "profil"
+    );
+
+
+    transaction.oncomplete =
+        function() {
+
+            fotoPreview.src =
+                "";
+
+            fotoPreview.style.display =
+                "none";
+
+            fotoKosong.style.display =
+                "flex";
+
+            fotoInput.value =
+                "";
+
+            alert(
+                "✅ Foto berhasil dihapus!"
+            );
+
+        };
+
+}
+      /* =========================
+   FOTO DASHBOARD
+========================= */
+
+let dashboardFotoDB;
+
+
+const dashboardFotoRequest =
+    indexedDB.open(
+        "DataDiriFotoDB",
+        1
+    );
+
+
+dashboardFotoRequest.onsuccess =
+    function(event) {
+
+        dashboardFotoDB =
+            event.target.result;
+
+        tampilkanFotoDashboard();
+
+    };
+
+
+function tampilkanFotoDashboard() {
+
+    const transaction =
+        dashboardFotoDB.transaction(
+            ["foto"],
+            "readonly"
+        );
+
+
+    const store =
+        transaction.objectStore(
+            "foto"
+        );
+
+
+    const request =
+        store.get(
+            "profil"
+        );
+
+
+    request.onsuccess =
+        function() {
+
+            const data =
+                request.result;
+
+
+            const img =
+                document.getElementById(
+                    "dashboardFoto"
+                );
+
+
+            const kosong =
+                document.getElementById(
+                    "dashboardFotoKosong"
+                );
+
+
+            if (!data) {
+
+                img.style.display =
+                    "none";
+
+                kosong.style.display =
+                    "flex";
+
+                return;
+
+            }
+
+
+            const url =
+                URL.createObjectURL(
+                    data.file
+                );
+
+
+            img.src =
+                url;
+
+
+            img.style.display =
+                "block";
+
+
+            kosong.style.display =
+                "none";
+
+        };
+
+}
 </script>
 
 
