@@ -2,283 +2,176 @@
 <html lang="id">
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Hasil Karya Excel</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-
-            min-height: 100vh;
-
-            background: linear-gradient(
-                135deg,
-                #667eea,
-                #764ba2
-            );
-
-            padding: 25px;
-
-        }
-
-        .container {
-
-            width: 100%;
-            max-width: 900px;
-
-            margin: auto;
-
-        }
-
-        .header {
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 20px;
-
-            text-align: center;
-
-            margin-bottom: 20px;
-
-        }
-
-        .header .icon {
-
-            font-size: 55px;
-
-            margin-bottom: 10px;
-
-        }
-
-        .header h1 {
-
-            color: #333;
-
-            margin-bottom: 8px;
-
-        }
-
-        .header p {
-
-            color: #777;
-
-        }
-
-        .form-box {
-
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 20px;
-
-            margin-bottom: 25px;
-
-        }
-
-        .form-box h2 {
-
-            margin-bottom: 20px;
-
-            color: #333;
-
-        }
-
-        label {
-
-            display: block;
-
-            margin-top: 15px;
-
-            margin-bottom: 7px;
-
-            font-weight: bold;
-
-        }
-
-        input,
-        textarea {
-
-            width: 100%;
-
-            padding: 13px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 10px;
-
-            outline: none;
-
-            font-size: 15px;
-
-        }
-
-        textarea {
-
-            min-height: 100px;
-
-            resize: vertical;
-
-        }
-
-        input:focus,
-        textarea:focus {
-
-            border-color: #667eea;
-
-        }
-
-        .file {
-
-            background: #f4f6fb;
-
-            padding: 15px;
-
-        }
-
-        button {
-
-            width: 100%;
-
-            padding: 14px;
-
-            margin-top: 20px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: #667eea;
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-        button:hover {
-
-            background: #5568d9;
-
-        }
-
-        .karya-list {
-
-            display: grid;
-
-            gap: 15px;
-
-        }
-
-        .karya {
-
-            background: white;
-
-            padding: 20px;
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 8px 20px rgba(0,0,0,0.1);
-
-        }
-
-        .karya h3 {
-
-            color: #333;
-
-            margin-bottom: 8px;
-
-        }
-
-        .karya p {
-
-            color: #777;
-
-            margin-bottom: 10px;
-
-        }
-
-        .file-name {
-
-            background: #f4f6fb;
-
-            padding: 10px;
-
-            border-radius: 8px;
-
-            font-size: 13px;
-
-            margin-bottom: 10px;
-
-            word-break: break-all;
-
-        }
-
-        .hapus {
-
-            background: #e74c3c;
-
-        }
-
-        .hapus:hover {
-
-            background: #c0392b;
-
-        }
-
-        .kembali {
-
-            background: #333;
-
-            margin-top: 20px;
-
-        }
-
-        .kosong {
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 18px;
-
-            text-align: center;
-
-            color: #777;
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hasil Karya Excel</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.header {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header .icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #777;
+}
+
+.upload-box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.upload-box h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px dashed #667eea;
+    border-radius: 12px;
+    background: #f4f6fb;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 13px;
+    margin-top: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 11px;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5568d9;
+}
+
+.back {
+    background: #333;
+}
+
+.karya {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.karya h3 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.karya p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.karya button {
+    width: auto;
+    display: inline-block;
+    margin-right: 8px;
+    padding: 10px 15px;
+}
+
+.hapus {
+    background: #e74c3c;
+}
+
+.download {
+    background: #2ecc71;
+}
+
+.empty {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    color: #777;
+}
+
+.info {
+    background: #f3f4ff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media(max-width:600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .header,
+    .upload-box {
+        padding: 20px;
+    }
+
+}
+
+</style>
 
 </head>
 
-
 <body>
 
-
 <div class="container">
-
-
-    <!-- HEADER -->
 
     <div class="header">
 
@@ -291,75 +184,57 @@
         </h1>
 
         <p>
-            Simpan dan tampilkan hasil karya Excel kamu
+            Simpan dan kelola hasil karya Excel kamu
         </p>
 
     </div>
 
 
-    <!-- FORM -->
-
-    <div class="form-box">
+    <div class="upload-box">
 
         <h2>
-            ➕ Tambah Hasil Karya
+            📁 Tambahkan Karya
         </h2>
-
-
-        <label>
-            Nama Karya
-        </label>
 
         <input
             type="text"
-            id="namaKarya"
-            placeholder="Contoh: Tabel Penjualan"
+            id="judul"
+            placeholder="Judul karya, contoh: Tabel Nilai Siswa"
         >
-
-
-        <label>
-            Deskripsi
-        </label>
-
-        <textarea
-            id="deskripsi"
-            placeholder="Jelaskan hasil karya kamu..."
-        ></textarea>
-
-
-        <label>
-            File Excel
-        </label>
 
         <input
             type="file"
-            id="fileExcel"
-            class="file"
-            accept=".xlsx,.xls,.csv"
+            id="file"
+            accept=".xls,.xlsx,.csv"
         >
 
+        <button onclick="simpanKarya()">
 
-        <button onclick="tambahKarya()">
-
-            📤 TAMBAH KARYA
+            ➕ SIMPAN KARYA
 
         </button>
+
+
+        <div class="info">
+
+            💡 Format yang dapat dipilih:
+            <b>.xls, .xlsx, dan .csv</b>.
+
+            <br><br>
+
+            File disimpan di browser perangkat ini.
+            Jika cache/data browser dihapus, file dapat ikut terhapus.
+
+        </div>
 
     </div>
 
 
-    <!-- DAFTAR -->
+    <div id="daftarKarya"></div>
 
-    <div
-        class="karya-list"
-        id="karyaList"
-    ></div>
-
-
-    <!-- KEMBALI -->
 
     <button
-        class="kembali"
+        class="back"
         onclick="kembali()"
     >
 
@@ -367,14 +242,12 @@
 
     </button>
 
-
 </div>
 
 
 <script>
 
-
-/* CEK LOGIN */
+/* LOGIN */
 
 if (
     localStorage.getItem("login")
@@ -387,132 +260,87 @@ if (
 }
 
 
-/* TAMPILKAN KARYA */
+/*
+    File disimpan menggunakan IndexedDB.
+    Ini lebih cocok untuk menyimpan file
+    dibanding localStorage.
+*/
 
-function tampilkanKarya() {
-
-
-    const daftar =
-        JSON.parse(
-            localStorage.getItem("karyaExcel")
-        ) || [];
+let db;
 
 
-    const container =
-        document.getElementById(
-            "karyaList"
-        );
+const request =
+    indexedDB.open(
+        "DataDiriDB",
+        1
+    );
 
 
-    container.innerHTML = "";
+request.onupgradeneeded =
+    function(event) {
 
+        db =
+            event.target.result;
 
-    if (daftar.length === 0) {
+        if (
+            !db.objectStoreNames.contains(
+                "karya"
+            )
+        ) {
 
-        container.innerHTML = `
-
-            <div class="kosong">
-
-                📂 Belum ada hasil karya.
-
-                <br><br>
-
-                Tambahkan karya Excel pertama kamu!
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    daftar.forEach(function(
-        karya,
-        index
-    ) {
-
-
-        const div =
-            document.createElement(
-                "div"
+            db.createObjectStore(
+                "karya",
+                {
+                    keyPath: "id",
+                    autoIncrement: true
+                }
             );
 
+        }
 
-        div.className = "karya";
-
-
-        div.innerHTML = `
-
-            <h3>
-                📄 ${escapeHTML(karya.nama)}
-            </h3>
-
-            <p>
-                ${escapeHTML(karya.deskripsi)}
-            </p>
-
-            <div class="file-name">
-
-                📎 ${escapeHTML(karya.fileName)}
-
-            </div>
-
-            <button
-                onclick="bukaFile(${index})"
-            >
-
-                📂 BUKA FILE
-
-            </button>
-
-            <button
-                class="hapus"
-                onclick="hapusKarya(${index})"
-            >
-
-                🗑️ HAPUS KARYA
-
-            </button>
-
-        `;
+    };
 
 
-        container.appendChild(div);
+request.onsuccess =
+    function(event) {
 
-    });
+        db =
+            event.target.result;
 
-}
+        tampilkanKarya();
 
-
-/* TAMBAH KARYA */
-
-function tambahKarya() {
+    };
 
 
-    const nama =
+request.onerror =
+    function() {
+
+        alert(
+            "❌ Browser tidak dapat membuka penyimpanan file."
+        );
+
+    };
+
+
+/* SIMPAN KARYA */
+
+function simpanKarya() {
+
+    const judul =
         document.getElementById(
-            "namaKarya"
+            "judul"
         ).value.trim();
-
-
-    const deskripsi =
-        document.getElementById(
-            "deskripsi"
-        ).value.trim();
-
 
     const file =
         document.getElementById(
-            "fileExcel"
+            "file"
         ).files[0];
 
 
-    if (!nama) {
+    if (!judul) {
 
         alert(
-            "❌ Masukkan nama karya!"
+            "⚠️ Masukkan judul karya."
         );
 
         return;
@@ -523,7 +351,7 @@ function tambahKarya() {
     if (!file) {
 
         alert(
-            "❌ Pilih file Excel terlebih dahulu!"
+            "⚠️ Pilih file Excel terlebih dahulu."
         );
 
         return;
@@ -531,148 +359,249 @@ function tambahKarya() {
     }
 
 
-    /*
-       Membaca file sebagai Data URL
-    */
+    const karya = {
 
-    const reader =
-        new FileReader();
+        judul: judul,
 
+        namaFile:
+            file.name,
 
-    reader.onload = function(e) {
+        ukuran:
+            file.size,
 
+        tanggal:
+            new Date().toLocaleString(
+                "id-ID"
+            ),
 
-        const daftar =
-            JSON.parse(
-                localStorage.getItem(
-                    "karyaExcel"
-                )
-            ) || [];
+        file: file
 
-
-        const karya = {
-
-            nama: nama,
-
-            deskripsi:
-                deskripsi ||
-                "Tidak ada deskripsi.",
-
-            fileName:
-                file.name,
-
-            fileData:
-                e.target.result
-
-        };
+    };
 
 
-        daftar.push(karya);
+    const transaction =
+        db.transaction(
+            ["karya"],
+            "readwrite"
+        );
 
 
-        try {
+    const store =
+        transaction.objectStore(
+            "karya"
+        );
 
-            localStorage.setItem(
-                "karyaExcel",
-                JSON.stringify(daftar)
-            );
 
+    store.add(karya);
+
+
+    transaction.oncomplete =
+        function() {
 
             alert(
-                "✅ Hasil karya berhasil ditambahkan!"
+                "✅ Karya berhasil disimpan!"
             );
 
 
             document.getElementById(
-                "namaKarya"
+                "judul"
             ).value = "";
 
 
             document.getElementById(
-                "deskripsi"
-            ).value = "";
-
-
-            document.getElementById(
-                "fileExcel"
+                "file"
             ).value = "";
 
 
             tampilkanKarya();
 
-
-        } catch(error) {
-
-            alert(
-                "❌ File terlalu besar untuk penyimpanan browser."
-                + "\n\nGunakan file Excel yang lebih kecil."
-            );
-
-        }
-
-    };
-
-
-    reader.readAsDataURL(file);
+        };
 
 }
 
 
-/* BUKA FILE */
+/* TAMPILKAN */
 
-function bukaFile(index) {
+function tampilkanKarya() {
 
-
-    const daftar =
-        JSON.parse(
-            localStorage.getItem(
-                "karyaExcel"
-            )
-        ) || [];
-
-
-    const karya =
-        daftar[index];
-
-
-    if (!karya) {
-
-        alert(
-            "❌ File tidak ditemukan."
-        );
-
-        return;
-
-    }
-
-
-    const link =
-        document.createElement(
-            "a"
+    const container =
+        document.getElementById(
+            "daftarKarya"
         );
 
 
-    link.href =
-        karya.fileData;
+    container.innerHTML = "";
 
 
-    link.download =
-        karya.fileName;
+    const transaction =
+        db.transaction(
+            ["karya"],
+            "readonly"
+        );
 
 
-    link.click();
+    const store =
+        transaction.objectStore(
+            "karya"
+        );
+
+
+    const request =
+        store.getAll();
+
+
+    request.onsuccess =
+        function() {
+
+            const data =
+                request.result;
+
+
+            if (
+                data.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="empty">
+
+                        📂 Belum ada hasil karya.
+
+                        <br><br>
+
+                        Tambahkan file Excel
+                        menggunakan tombol di atas.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            data.reverse().forEach(
+                function(item) {
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "karya";
+
+
+                    div.innerHTML = `
+
+                        <h3>
+                            📊 ${escapeHTML(item.judul)}
+                        </h3>
+
+                        <p>
+                            📁 ${escapeHTML(item.namaFile)}
+                            <br>
+                            🕒 ${escapeHTML(item.tanggal)}
+                            <br>
+                            💾 ${formatSize(item.ukuran)}
+                        </p>
+
+                        <button
+                            class="download"
+                            onclick="downloadKarya(${item.id})"
+                        >
+                            ⬇️ BUKA / DOWNLOAD
+                        </button>
+
+                        <button
+                            class="hapus"
+                            onclick="hapusKarya(${item.id})"
+                        >
+                            🗑️ HAPUS
+                        </button>
+
+                    `;
+
+
+                    container.appendChild(
+                        div
+                    );
+
+                }
+            );
+
+        };
+
+}
+
+
+/* DOWNLOAD */
+
+function downloadKarya(id) {
+
+    const transaction =
+        db.transaction(
+            ["karya"],
+            "readonly"
+        );
+
+
+    const store =
+        transaction.objectStore(
+            "karya"
+        );
+
+
+    const request =
+        store.get(id);
+
+
+    request.onsuccess =
+        function() {
+
+            const item =
+                request.result;
+
+
+            const url =
+                URL.createObjectURL(
+                    item.file
+                );
+
+
+            const a =
+                document.createElement(
+                    "a"
+                );
+
+
+            a.href = url;
+
+            a.download =
+                item.namaFile;
+
+
+            a.click();
+
+
+            URL.revokeObjectURL(
+                url
+            );
+
+        };
 
 }
 
 
 /* HAPUS */
 
-function hapusKarya(index) {
-
+function hapusKarya(id) {
 
     const yakin =
         confirm(
-            "Yakin ingin menghapus karya ini?"
+            "Hapus karya ini?"
         );
 
 
@@ -683,41 +612,89 @@ function hapusKarya(index) {
     }
 
 
-    const daftar =
-        JSON.parse(
-            localStorage.getItem(
-                "karyaExcel"
-            )
-        ) || [];
+    const transaction =
+        db.transaction(
+            ["karya"],
+            "readwrite"
+        );
 
 
-    daftar.splice(
-        index,
-        1
-    );
+    const store =
+        transaction.objectStore(
+            "karya"
+        );
 
 
-    localStorage.setItem(
-        "karyaExcel",
-        JSON.stringify(daftar)
-    );
+    store.delete(id);
 
 
-    tampilkanKarya();
+    transaction.oncomplete =
+        function() {
+
+            tampilkanKarya();
+
+        };
 
 }
 
 
-/* KEAMANAN TEKS */
+/* FORMAT UKURAN */
 
-function escapeHTML(teks) {
+function formatSize(bytes) {
 
-    return teks
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    if (
+        bytes < 1024
+    ) {
+
+        return bytes + " B";
+
+    }
+
+
+    if (
+        bytes < 1024 * 1024
+    ) {
+
+        return (
+            bytes / 1024
+        ).toFixed(1) + " KB";
+
+    }
+
+
+    return (
+        bytes /
+        (1024 * 1024)
+    ).toFixed(1) + " MB";
+
+}
+
+
+/* AMANKAN TEKS */
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -731,14 +708,7 @@ function kembali() {
 
 }
 
-
-/* MULAI */
-
-tampilkanKarya();
-
-
 </script>
-
 
 </body>
 
