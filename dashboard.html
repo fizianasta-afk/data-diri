@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Data Diri</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f6fb;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            color: white;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 30px auto;
+        }
+
+        /* PROFILE */
+
+        .profile {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .profile h2 {
+            margin-bottom: 15px;
+        }
+
+        .profile p {
+            margin: 8px 0;
+
+            color: #555;
+        }
+
+        /* MENU */
+
+        .menu {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+
+            transition: 0.2s;
+
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .icon {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        /* LOGOUT */
+
+        .logout {
+            margin-top: 25px;
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #e74c3c;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background: #c0392b;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>👋 Dashboard</h1>
+
+    <p>
+        Selamat datang di Website Data Diri
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- DATA DIRI -->
+
+    <div class="profile">
+
+        <h2>👤 Data Diri</h2>
+
+        <p>
+            <b>Nama:</b>
+            <span id="nama">-</span>
+        </p>
+
+        <p>
+            <b>Sekolah:</b>
+            <span id="sekolah">-</span>
+        </p>
+
+        <p>
+            <b>Umur:</b>
+            <span id="umur">-</span>
+        </p>
+
+        <p>
+            <b>Cita-cita:</b>
+            <span id="cita">-</span>
+        </p>
+
+        <p>
+            <b>Hobi:</b>
+            <span id="hobi">-</span>
+        </p>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+
+        <!-- JADWAL -->
+
+        <div
+            class="card"
+            onclick="bukaJadwal()"
+        >
+
+            <div class="icon">
+                📅
+            </div>
+
+            <h3>
+                Masuk Jadwal Pelajaran
+            </h3>
+
+            <p>
+                Melihat jadwal pelajaran
+            </p>
+
+        </div>
+
+
+        <!-- EDIT JADWAL -->
+
+        <div
+            class="card"
+            onclick="editJadwal()"
+        >
+
+            <div class="icon">
+                ✏️
+            </div>
+
+            <h3>
+                Edit Jadwal Pelajaran
+            </h3>
+
+            <p>
+                Mengubah jadwal pelajaran
+            </p>
+
+        </div>
+
+
+        <!-- HASIL KARYA -->
+
+        <div
+            class="card"
+            onclick="bukaKarya()"
+        >
+
+            <div class="icon">
+                📊
+            </div>
+
+            <h3>
+                Hasil Karya Excel
+            </h3>
+
+            <p>
+                Melihat hasil karya Excel
+            </p>
+
+        </div>
+
+
+        <!-- DATA DIRI -->
+
+        <div
+            class="card"
+            onclick="bukaProfil()"
+        >
+
+            <div class="icon">
+                👤
+            </div>
+
+            <h3>
+                Data Diri
+            </h3>
+
+            <p>
+                Melihat dan mengedit data diri
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- LOGOUT -->
+
+    <button
+        class="logout"
+        onclick="logout()"
+    >
+        🚪 KELUAR
+    </button>
+
+
+</div>
+
+
+<script>
+
+
+/* CEK LOGIN */
+
+if (
+    localStorage.getItem("login")
+    !== "true"
+) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* AMBIL DATA */
+
+const data =
+    JSON.parse(
+        localStorage.getItem("dataDiri")
+    );
+
+
+if (data) {
+
+    document.getElementById("nama")
+        .textContent = data.nama;
+
+    document.getElementById("sekolah")
+        .textContent = data.sekolah;
+
+    document.getElementById("umur")
+        .textContent = data.umur;
+
+    document.getElementById("cita")
+        .textContent = data.cita;
+
+    document.getElementById("hobi")
+        .textContent = data.hobi;
+
+}
+
+
+/* JADWAL */
+
+function bukaJadwal() {
+
+    window.location.href =
+        "jadwal.html";
+
+}
+
+
+/* EDIT JADWAL */
+
+function editJadwal() {
+
+    window.location.href =
+        "edit-jadwal.html";
+
+}
+
+
+/* HASIL KARYA */
+
+function bukaKarya() {
+
+    window.location.href =
+        "karya.html";
+
+}
+
+
+/* DATA DIRI */
+
+function bukaProfil() {
+
+    alert(
+        "Fitur edit data diri akan kita buat selanjutnya."
+    );
+
+}
+
+
+/* LOGOUT */
+
+function logout() {
+
+    localStorage.removeItem("login");
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+</script>
+
+</body>
+
+</html>
