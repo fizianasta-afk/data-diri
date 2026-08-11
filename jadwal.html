@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>Jadwal Pelajaran</title>
 
@@ -23,13 +23,14 @@ body {
 
     min-height: 100vh;
 
-    background: linear-gradient(
-        135deg,
-        #667eea,
-        #764ba2
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
 
-    padding: 25px;
+    padding: 20px;
 
 }
 
@@ -37,141 +38,43 @@ body {
 
     width: 100%;
 
-    max-width: 900px;
+    max-width: 950px;
 
     margin: auto;
 
 }
 
-
-/* PIN */
-
-.pin-box {
+.box {
 
     background: white;
 
-    padding: 35px;
-
     border-radius: 22px;
 
-    text-align: center;
+    padding: 25px;
+
+    margin-bottom: 20px;
 
     box-shadow:
-        0 20px 50px rgba(
+        0 15px 40px rgba(
             0,
             0,
             0,
-            0.2
+            0.15
         );
-
-}
-
-.pin-icon {
-
-    font-size: 60px;
-
-    margin-bottom: 15px;
-
-}
-
-.pin-box h1 {
-
-    color: #333;
-
-    margin-bottom: 8px;
-
-}
-
-.pin-box p {
-
-    color: #777;
-
-    margin-bottom: 25px;
-
-}
-
-.pin-input {
-
-    width: 100%;
-
-    padding: 15px;
-
-    border: 2px solid #ddd;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    font-size: 22px;
-
-    letter-spacing: 8px;
-
-    outline: none;
-
-}
-
-.pin-input:focus {
-
-    border-color: #667eea;
-
-}
-
-button {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin-top: 15px;
-
-    border: none;
-
-    border-radius: 11px;
-
-    background: #667eea;
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-}
-
-button:hover {
-
-    background: #5568d9;
-
-}
-
-.back {
-
-    background: #333;
-
-}
-
-
-/* JADWAL */
-
-#jadwalPage {
-
-    display: none;
 
 }
 
 .header {
 
-    background: white;
-
-    padding: 30px;
-
-    border-radius: 22px;
-
     text-align: center;
 
-    margin-bottom: 20px;
+}
+
+.icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
 
 }
 
@@ -189,87 +92,195 @@ button:hover {
 
 }
 
-.day {
+.pin-box {
 
-    background: white;
+    max-width: 450px;
 
-    padding: 20px;
+    margin: 60px auto;
 
-    border-radius: 20px;
+    text-align: center;
+
+}
+
+.pin-box input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    letter-spacing: 5px;
+
+}
+
+button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: white;
+
+    background: #667eea;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.back {
+
+    background: #333;
+
+}
+
+.hidden {
+
+    display: none;
+
+}
+
+.hari {
 
     margin-bottom: 20px;
 
-    box-shadow:
-        0 10px 25px rgba(
-            0,
-            0,
-            0,
-            0.08
-        );
-
 }
 
-.day h2 {
+.hari-title {
+
+    font-size: 20px;
+
+    font-weight: bold;
 
     color: #667eea;
-
-    margin-bottom: 15px;
-
-}
-
-.lesson {
-
-    display: grid;
-
-    grid-template-columns:
-        130px
-        1fr;
-
-    gap: 15px;
-
-    padding: 14px;
-
-    background: #f4f6fb;
-
-    border-radius: 12px;
 
     margin-bottom: 10px;
 
 }
 
-.time {
+.item {
+
+    background: #f6f7fb;
+
+    border-left: 5px solid #667eea;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+}
+
+.item-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.mapel {
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: #333;
+
+}
+
+.jam {
 
     font-weight: bold;
 
     color: #667eea;
 
+    white-space: nowrap;
+
 }
 
-.subject {
+.guru {
 
-    color: #333;
+    margin-top: 7px;
 
-    font-weight: bold;
+    color: #777;
+
+    font-size: 13px;
 
 }
 
 .empty {
 
-    color: #888;
-
     text-align: center;
 
-    padding: 10px;
+    padding: 35px;
+
+    color: #777;
+
+    background: #f6f7fb;
+
+    border-radius: 15px;
+
+}
+
+.info {
+
+    background: #f0f2ff;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    color: #555;
+
+    font-size: 13px;
 
 }
 
 @media(max-width:600px) {
 
-    .lesson {
+    body {
 
-        grid-template-columns: 1fr;
+        padding: 12px;
 
-        gap: 5px;
+    }
+
+    .box {
+
+        padding: 18px;
+
+    }
+
+    .item-top {
+
+        flex-direction: column;
+
+        align-items: flex-start;
 
     }
 
@@ -289,11 +300,11 @@ button:hover {
 <!-- PIN -->
 
 <div
-    class="pin-box"
     id="pinPage"
+    class="box pin-box"
 >
 
-    <div class="pin-icon">
+    <div class="icon">
         🔐
     </div>
 
@@ -305,24 +316,26 @@ button:hover {
         Masukkan PIN untuk melihat jadwal
     </p>
 
+
     <input
         type="password"
         id="pin"
-        class="pin-input"
         maxlength="6"
         inputmode="numeric"
-        placeholder="••••"
+        placeholder="Masukkan PIN"
     >
+
 
     <button onclick="cekPIN()">
 
-        🔓 BUKA JADWAL
+        🔓 MASUK JADWAL
 
     </button>
 
+
     <button
         class="back"
-        onclick="kembali()"
+        onclick="kembaliDashboard()"
     >
 
         ← KEMBALI
@@ -336,32 +349,55 @@ button:hover {
 
 <div
     id="jadwalPage"
+    class="hidden"
 >
 
-    <div class="header">
 
-        <h1>
-            📅 Jadwal Pelajaran
-        </h1>
+<div class="box header">
 
-        <p>
-            Jadwal sekolah kamu
-        </p>
-
+    <div class="icon">
+        📅
     </div>
 
+    <h1>
+        Jadwal Pelajaran
+    </h1>
 
-    <div id="jadwalList"></div>
+    <p id="namaSekolah">
+        Jadwal Sekolah
+    </p>
+
+</div>
 
 
-    <button
-        class="back"
-        onclick="kembali()"
-    >
+<div class="box">
 
-        ← KEMBALI KE DASHBOARD
 
-    </button>
+<div class="info">
+
+📚 Berikut adalah jadwal pelajaran
+yang telah kamu buat sendiri.
+
+</div>
+
+
+<div id="daftarJadwal">
+
+</div>
+
+
+<button
+    class="back"
+    onclick="kembaliDashboard()"
+>
+
+← KEMBALI KE DASHBOARD
+
+</button>
+
+
+</div>
+
 
 </div>
 
@@ -372,7 +408,9 @@ button:hover {
 <script>
 
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 if (
     localStorage.getItem("login")
@@ -385,23 +423,31 @@ if (
 }
 
 
-/* HARI */
+/* =========================
+   DATA
+========================= */
 
-const hari = [
-
-    "Senin",
-    "Selasa",
-    "Rabu",
-    "Kamis",
-    "Jumat"
-
-];
+const data =
+    JSON.parse(
+        localStorage.getItem(
+            "dataDiri"
+        )
+    );
 
 
-/* PIN */
+if (!data) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* =========================
+   PIN
+========================= */
 
 function cekPIN() {
-
 
     const pin =
         document.getElementById(
@@ -409,202 +455,231 @@ function cekPIN() {
         ).value;
 
 
-    const data =
-        JSON.parse(
-            localStorage.getItem(
-                "dataDiri"
-            )
-        );
-
-
     if (
-        data &&
-        pin === data.pinJadwal
+        pin !== data.pinJadwal
     ) {
-
-
-        document.getElementById(
-            "pinPage"
-        ).style.display =
-            "none";
-
-
-        document.getElementById(
-            "jadwalPage"
-        ).style.display =
-            "block";
-
-
-        tampilkanJadwal();
-
-
-    }
-
-    else {
 
         alert(
             "❌ PIN Jadwal salah!"
         );
 
-        document.getElementById(
-            "pin"
-        ).value = "";
+        return;
 
     }
+
+
+    document.getElementById(
+        "pinPage"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "jadwalPage"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "namaSekolah"
+    ).textContent =
+        data.sekolah ||
+        "Jadwal Sekolah";
+
+
+    tampilkanJadwal();
 
 }
 
 
-/* TAMPILKAN */
+/* =========================
+   TAMPIL JADWAL
+========================= */
 
 function tampilkanJadwal() {
 
-
-    const data =
-        JSON.parse(
-            localStorage.getItem(
-                "jadwalBaru"
-            )
-        ) || {};
-
-
     const container =
         document.getElementById(
-            "jadwalList"
+            "daftarJadwal"
         );
 
 
     container.innerHTML = "";
 
 
-    hari.forEach(
-        function(namaHari) {
+    const jadwal =
+        JSON.parse(
+            localStorage.getItem(
+                "jadwal"
+            )
+        ) || [];
 
 
-            const day =
+    if (
+        jadwal.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                📭 Belum ada jadwal.
+
+                <br><br>
+
+                Buka menu
+                <b>Edit Jadwal</b>
+                untuk menambahkan pelajaran.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const urutanHari = [
+
+        "Senin",
+
+        "Selasa",
+
+        "Rabu",
+
+        "Kamis",
+
+        "Jumat",
+
+        "Sabtu"
+
+    ];
+
+
+    urutanHari.forEach(
+        function(hari) {
+
+            const dataHari =
+                jadwal.filter(
+                    function(item) {
+
+                        return item.hari
+                            === hari;
+
+                    }
+                );
+
+
+            if (
+                dataHari.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            dataHari.sort(
+                function(a, b) {
+
+                    return a.mulai.localeCompare(
+                        b.mulai
+                    );
+
+                }
+            );
+
+
+            const section =
                 document.createElement(
                     "div"
                 );
 
 
-            day.className =
-                "day";
+            section.className =
+                "hari";
 
 
-            const title =
-                document.createElement(
-                    "h2"
-                );
+            section.innerHTML = `
+
+                <div class="hari-title">
+
+                    📅 ${hari}
+
+                </div>
+
+            `;
 
 
-            title.textContent =
-                "📚 " + namaHari;
+            dataHari.forEach(
+                function(item) {
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
 
 
-            day.appendChild(
-                title
+                    div.className =
+                        "item";
+
+
+                    div.innerHTML = `
+
+                        <div class="item-top">
+
+                            <div class="mapel">
+
+                                📚 ${escapeHTML(
+                                    item.mapel
+                                )}
+
+                            </div>
+
+                            <div class="jam">
+
+                                🕐 ${escapeHTML(
+                                    item.mulai
+                                )}
+                                -
+                                ${escapeHTML(
+                                    item.selesai
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="guru">
+
+                            👨‍🏫
+                            ${
+                                item.guru
+                                ? escapeHTML(
+                                    item.guru
+                                )
+                                : "Guru belum diisi"
+                            }
+
+                        </div>
+
+                    `;
+
+
+                    section.appendChild(
+                        div
+                    );
+
+                }
             );
 
 
-            const daftar =
-                data[namaHari] || [];
-
-
-            if (
-                daftar.length === 0
-            ) {
-
-
-                const empty =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                empty.className =
-                    "empty";
-
-
-                empty.textContent =
-                    "Belum ada jadwal.";
-
-
-                day.appendChild(
-                    empty
-                );
-
-
-            }
-
-            else {
-
-
-                daftar.forEach(
-                    function(item) {
-
-
-                        const lesson =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        lesson.className =
-                            "lesson";
-
-
-                        const time =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        time.className =
-                            "time";
-
-
-                        time.textContent =
-                            item.mulai +
-                            " - " +
-                            item.selesai;
-
-
-                        const subject =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        subject.className =
-                            "subject";
-
-
-                        subject.textContent =
-                            item.pelajaran;
-
-
-                        lesson.appendChild(
-                            time
-                        );
-
-
-                        lesson.appendChild(
-                            subject
-                        );
-
-
-                        day.appendChild(
-                            lesson
-                        );
-
-                    }
-                );
-
-            }
-
-
             container.appendChild(
-                day
+                section
             );
 
         }
@@ -613,9 +688,47 @@ function tampilkanJadwal() {
 }
 
 
-/* KEMBALI */
+/* =========================
+   AMANKAN TEKS
+========================= */
 
-function kembali() {
+function escapeHTML(text) {
+
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================
+   KEMBALI
+========================= */
+
+function kembaliDashboard() {
 
     window.location.href =
         "dashboard.html";
@@ -623,6 +736,7 @@ function kembali() {
 }
 
 </script>
+
 
 </body>
 
