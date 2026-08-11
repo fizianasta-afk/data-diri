@@ -3,361 +3,466 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard Data Diri</title>
+<title>Dashboard Data Diri</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        body {
+body {
 
-            min-height: 100vh;
+    min-height: 100vh;
 
-            background: #f4f6fb;
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
 
-            color: #222;
+    padding: 25px;
 
-            transition: 0.3s;
+}
 
-        }
+.container {
 
-        body.dark {
+    width: 100%;
 
-            background: #121212;
+    max-width: 1050px;
 
-            color: white;
+    margin: auto;
 
-        }
+}
 
 
-        /* HEADER */
+/* =========================
+   HEADER
+========================= */
 
-        header {
+.header {
 
-            background: linear-gradient(
-                135deg,
-                #667eea,
-                #764ba2
-            );
+    background: white;
 
-            color: white;
+    border-radius: 25px;
 
-            padding: 25px;
+    padding: 25px 30px;
 
-            position: relative;
+    display: flex;
 
-        }
+    justify-content: space-between;
 
-        .header-content {
+    align-items: center;
 
-            width: 90%;
+    gap: 20px;
 
-            max-width: 1100px;
+    margin-bottom: 20px;
 
-            margin: auto;
+    box-shadow:
+        0 15px 40px rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
 
-            display: flex;
+}
 
-            justify-content: space-between;
+.header-left {
 
-            align-items: center;
+    display: flex;
 
-            gap: 20px;
+    align-items: center;
 
-        }
+    gap: 15px;
 
-        header h1 {
+}
 
-            margin-bottom: 6px;
+.header-icon {
 
-        }
+    width: 55px;
 
+    height: 55px;
 
-        /* DARK MODE */
+    border-radius: 15px;
 
-        .theme-btn {
+    background: #667eea;
 
-            width: auto;
+    display: flex;
 
-            padding: 10px 15px;
+    align-items: center;
 
-            margin: 0;
+    justify-content: center;
 
-            background: rgba(
-                255,
-                255,
-                255,
-                0.2
-            );
+    font-size: 28px;
 
-        }
+}
 
+.header h1 {
 
-        /* CONTAINER */
+    color: #333;
 
-        .container {
+    font-size: 24px;
 
-            width: 90%;
+}
 
-            max-width: 1100px;
+.header p {
 
-            margin: 30px auto;
+    color: #777;
 
-        }
+    margin-top: 4px;
 
+}
 
-        /* PROFILE */
+.logout {
 
-        .profile {
+    width: auto;
 
-            background: white;
+    margin: 0;
 
-            padding: 25px;
+    padding: 12px 18px;
 
-            border-radius: 20px;
+    background: #e74c3c;
 
-            margin-bottom: 25px;
+}
 
-            box-shadow:
-                0 10px 30px rgba(
-                    0,
-                    0,
-                    0,
-                    0.08
-                );
 
-            display: flex;
+/* =========================
+   PROFILE
+========================= */
 
-            align-items: center;
+.profile-card {
 
-            gap: 25px;
+    background: white;
 
-        }
+    border-radius: 25px;
 
-        body.dark .profile,
-        body.dark .card {
+    padding: 30px;
 
-            background: #1e1e1e;
+    margin-bottom: 20px;
 
-        }
+    text-align: center;
 
-        .avatar {
+    box-shadow:
+        0 15px 40px rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
 
-            width: 90px;
+}
 
-            height: 90px;
+.profile-photo {
 
-            border-radius: 50%;
+    display: flex;
 
-            background: linear-gradient(
-                135deg,
-                #667eea,
-                #764ba2
-            );
+    justify-content: center;
 
-            display: flex;
+    align-items: center;
 
-            justify-content: center;
+    margin-bottom: 15px;
 
-            align-items: center;
+}
 
-            font-size: 40px;
+.profile-photo img {
 
-            flex-shrink: 0;
+    width: 135px;
 
-        }
+    height: 135px;
 
-        .profile-info h2 {
+    object-fit: cover;
 
-            margin-bottom: 8px;
+    border-radius: 50%;
 
-        }
+    border: 6px solid #667eea;
 
-        .profile-info p {
+    box-shadow:
+        0 10px 25px rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
 
-            color: #777;
+    display: none;
 
-        }
+}
 
-        body.dark .profile-info p {
+.dashboard-foto-kosong {
 
-            color: #bbb;
+    width: 135px;
 
-        }
+    height: 135px;
 
+    border-radius: 50%;
 
-        /* MENU */
+    background: #f1f3f9;
 
-        .menu {
+    border: 6px solid #667eea;
 
-            display: grid;
+    display: flex;
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(220px, 1fr)
-                );
+    justify-content: center;
 
-            gap: 20px;
+    align-items: center;
 
-        }
+    font-size: 65px;
 
+}
 
-        /* CARD */
+.profile-card h2 {
 
-        .card {
+    color: #333;
 
-            background: white;
+    margin-bottom: 6px;
 
-            padding: 28px;
+}
 
-            border-radius: 20px;
+.profile-school {
 
-            text-align: center;
+    color: #667eea;
 
-            cursor: pointer;
+    font-weight: bold;
 
-            box-shadow:
-                0 10px 25px rgba(
-                    0,
-                    0,
-                    0,
-                    0.07
-                );
+    margin-bottom: 20px;
 
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
+}
 
-        }
+.profile-info {
 
-        .card:hover {
+    display: grid;
 
-            transform:
-                translateY(-7px);
+    grid-template-columns:
+        repeat(4, 1fr);
 
-            box-shadow:
-                0 15px 35px rgba(
-                    0,
-                    0,
-                    0,
-                    0.12
-                );
+    gap: 12px;
 
-        }
+}
 
-        .icon {
+.info-card {
 
-            font-size: 50px;
+    background: #f5f6fb;
 
-            margin-bottom: 15px;
+    border-radius: 15px;
 
-        }
+    padding: 15px;
 
-        .card h3 {
+}
 
-            margin-bottom: 8px;
+.info-card .emoji {
 
-        }
+    font-size: 25px;
 
-        .card p {
+    margin-bottom: 5px;
 
-            color: #777;
+}
 
-            font-size: 14px;
+.info-card .label {
 
-        }
+    color: #888;
 
-        body.dark .card p {
+    font-size: 12px;
 
-            color: #bbb;
+}
 
-        }
+.info-card .value {
 
+    color: #333;
 
-        /* LOGOUT */
+    font-weight: bold;
 
-        .logout {
+    margin-top: 5px;
 
-            width: 100%;
+}
 
-            padding: 15px;
 
-            margin-top: 25px;
+/* =========================
+   MENU
+========================= */
 
-            border: none;
+.menu-title {
 
-            border-radius: 12px;
+    color: white;
 
-            background: #e74c3c;
+    margin: 25px 0 15px;
 
-            color: white;
+    font-size: 20px;
 
-            font-size: 16px;
+}
 
-            font-weight: bold;
+.menu {
 
-            cursor: pointer;
+    display: grid;
 
-        }
+    grid-template-columns:
+        repeat(2, 1fr);
 
-        .logout:hover {
+    gap: 18px;
 
-            background: #c0392b;
+}
 
-        }
+.menu-card {
 
+    background: white;
 
-        /* FOOTER */
+    border-radius: 22px;
 
-        footer {
+    padding: 25px;
 
-            text-align: center;
+    text-decoration: none;
 
-            color: #888;
+    color: #333;
 
-            margin-top: 30px;
+    display: flex;
 
-            padding-bottom: 20px;
+    align-items: center;
 
-            font-size: 13px;
+    gap: 18px;
 
-        }
+    box-shadow:
+        0 12px 30px rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
 
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 
-        /* MOBILE */
+}
 
-        @media(max-width:600px) {
+.menu-card:hover {
 
-            .header-content {
+    transform:
+        translateY(-5px);
 
-                flex-direction: column;
+    box-shadow:
+        0 18px 35px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
 
-                text-align: center;
+}
 
-            }
+.menu-icon {
 
-            .profile {
+    width: 65px;
 
-                flex-direction: column;
+    height: 65px;
 
-                text-align: center;
+    border-radius: 18px;
 
-            }
+    display: flex;
 
-        }
+    align-items: center;
 
-    </style>
+    justify-content: center;
+
+    font-size: 32px;
+
+    background: #f1f3ff;
+
+}
+
+.menu-card h3 {
+
+    margin-bottom: 5px;
+
+}
+
+.menu-card p {
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    text-align: center;
+
+    color: white;
+
+    padding: 25px 0 10px;
+
+    font-size: 13px;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px) {
+
+    body {
+
+        padding: 15px;
+
+    }
+
+    .header {
+
+        padding: 20px;
+
+        align-items: flex-start;
+
+    }
+
+    .header h1 {
+
+        font-size: 19px;
+
+    }
+
+    .logout {
+
+        padding: 10px;
+
+        font-size: 13px;
+
+    }
+
+    .profile-info {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .menu {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -365,204 +470,294 @@
 <body>
 
 
-<!-- HEADER -->
-
-<header>
-
-    <div class="header-content">
-
-        <div>
-
-            <h1 id="sapaan">
-                👋 Selamat Datang
-            </h1>
-
-            <p>
-                Website Data Diri Kamu
-            </p>
-
-        </div>
-
-
-        <button
-            class="theme-btn"
-            onclick="toggleTheme()"
-        >
-
-            🌙 Mode
-
-        </button>
-
-    </div>
-
-</header>
-
-
 <div class="container">
 
 
-    <!-- PROFILE -->
+<!-- HEADER -->
 
-    <div class="profile">
+<div class="header">
 
-        <div class="avatar">
+    <div class="header-left">
 
+        <div class="header-icon">
             👤
-
         </div>
 
+        <div>
 
-        <div class="profile-info">
-
-            <h2 id="nama">
-                Nama
-            </h2>
-
-            <p>
-
-                🏫
-                <span id="sekolah">
-                    Sekolah
-                </span>
-
-            </p>
+            <h1>
+                Dashboard
+            </h1>
 
             <p>
-
-                🎯
-                <span id="cita">
-                    Cita-cita
-                </span>
-
-            </p>
-
-            <p>
-
-                🎮
-                <span id="hobi">
-                    Hobi
-                </span>
-
+                Website Data Diri
             </p>
 
         </div>
 
     </div>
 
-
-    <!-- MENU -->
-
-    <div class="menu">
-
-
-        <!-- JADWAL -->
-
-        <div
-            class="card"
-            onclick="bukaJadwal()"
-        >
-
-            <div class="icon">
-                📅
-            </div>
-
-            <h3>
-                Jadwal Pelajaran
-            </h3>
-
-            <p>
-                Lihat jadwal pelajaran
-            </p>
-
-        </div>
-
-
-        <!-- EDIT -->
-
-        <div
-            class="card"
-            onclick="editJadwal()"
-        >
-
-            <div class="icon">
-                ✏️
-            </div>
-
-            <h3>
-                Edit Jadwal
-            </h3>
-
-            <p>
-                Atur jadwal pelajaran
-            </p>
-
-        </div>
-
-
-        <!-- EXCEL -->
-
-        <div
-            class="card"
-            onclick="bukaKarya()"
-        >
-
-            <div class="icon">
-                📊
-            </div>
-
-            <h3>
-                Hasil Karya Excel
-            </h3>
-
-            <p>
-                Simpan dan lihat karya Excel
-            </p>
-
-        </div>
-
-
-        <!-- PROFIL -->
-
-        <div
-            class="card"
-            onclick="bukaProfil()"
-        >
-
-            <div class="icon">
-                👤
-            </div>
-
-            <h3>
-                Edit Data Diri
-            </h3>
-
-            <p>
-                Ubah informasi diri
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- LOGOUT -->
 
     <button
         class="logout"
         onclick="logout()"
     >
 
-        🚪 KELUAR
+        🚪 Logout
 
     </button>
 
+</div>
 
-    <footer>
 
-        Website Data Diri © 2026
+<!-- PROFILE -->
 
-    </footer>
+<div class="profile-card">
+
+
+    <div class="profile-photo">
+
+        <img
+            id="dashboardFoto"
+            src=""
+            alt="Foto Profil"
+        >
+
+        <div
+            id="dashboardFotoKosong"
+            class="dashboard-foto-kosong"
+        >
+            👤
+        </div>
+
+    </div>
+
+
+    <h2 id="nama">
+        Nama Pengguna
+    </h2>
+
+
+    <div
+        class="profile-school"
+        id="sekolah"
+    >
+        Sekolah
+    </div>
+
+
+    <div class="profile-info">
+
+
+        <div class="info-card">
+
+            <div class="emoji">
+                🎂
+            </div>
+
+            <div class="label">
+                UMUR
+            </div>
+
+            <div
+                class="value"
+                id="umur"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="emoji">
+                🎯
+            </div>
+
+            <div class="label">
+                CITA-CITA
+            </div>
+
+            <div
+                class="value"
+                id="cita"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="emoji">
+                🎮
+            </div>
+
+            <div class="label">
+                HOBI
+            </div>
+
+            <div
+                class="value"
+                id="hobi"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="emoji">
+                📧
+            </div>
+
+            <div class="label">
+                EMAIL
+            </div>
+
+            <div
+                class="value"
+                id="email"
+            >
+                -
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- MENU -->
+
+<div class="menu-title">
+
+    ⚡ Menu Utama
+
+</div>
+
+
+<div class="menu">
+
+
+    <!-- JADWAL -->
+
+    <a
+        href="jadwal.html"
+        class="menu-card"
+    >
+
+        <div class="menu-icon">
+            📅
+        </div>
+
+        <div>
+
+            <h3>
+                Jadwal Pelajaran
+            </h3>
+
+            <p>
+                Lihat jadwal sekolah
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <!-- EDIT JADWAL -->
+
+    <a
+        href="edit-jadwal.html"
+        class="menu-card"
+    >
+
+        <div class="menu-icon">
+            ✏️
+        </div>
+
+        <div>
+
+            <h3>
+                Edit Jadwal
+            </h3>
+
+            <p>
+                Atur jam dan pelajaran
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <!-- EXCEL -->
+
+    <a
+        href="karya.html"
+        class="menu-card"
+    >
+
+        <div class="menu-icon">
+            📊
+        </div>
+
+        <div>
+
+            <h3>
+                Hasil Karya Excel
+            </h3>
+
+            <p>
+                Simpan hasil karya Excel
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <!-- PROFIL -->
+
+    <a
+        href="profil.html"
+        class="menu-card"
+    >
+
+        <div class="menu-icon">
+            ⚙️
+        </div>
+
+        <div>
+
+            <h3>
+                Edit Profil
+            </h3>
+
+            <p>
+                Ubah data dan PIN
+            </p>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+
+<div class="footer">
+
+    © 2026 Website Data Diri
+
+</div>
 
 
 </div>
@@ -571,7 +766,9 @@
 <script>
 
 
-/* CEK LOGIN */
+/* =========================
+   CEK LOGIN
+========================= */
 
 if (
     localStorage.getItem("login")
@@ -584,7 +781,9 @@ if (
 }
 
 
-/* DATA */
+/* =========================
+   DATA DIRI
+========================= */
 
 const data =
     JSON.parse(
@@ -594,88 +793,7 @@ const data =
     );
 
 
-if (data) {
-
-    document.getElementById(
-        "nama"
-    ).textContent =
-        data.nama;
-
-
-    document.getElementById(
-        "sekolah"
-    ).textContent =
-        data.sekolah;
-
-
-    document.getElementById(
-        "cita"
-    ).textContent =
-        data.cita;
-
-
-    document.getElementById(
-        "hobi"
-    ).textContent =
-        data.hobi;
-
-
-    document.getElementById(
-        "sapaan"
-    ).textContent =
-        "👋 Halo, " +
-        data.nama;
-
-}
-
-
-/* JADWAL */
-
-function bukaJadwal() {
-
-    window.location.href =
-        "jadwal.html";
-
-}
-
-
-/* EDIT JADWAL */
-
-function editJadwal() {
-
-    window.location.href =
-        "edit-jadwal.html";
-
-}
-
-
-/* KARYA */
-
-function bukaKarya() {
-
-    window.location.href =
-        "karya.html";
-
-}
-
-
-/* PROFIL */
-
-function bukaProfil() {
-
-    window.location.href =
-        "profil.html";
-
-}
-
-
-/* LOGOUT */
-
-function logout() {
-
-    localStorage.removeItem(
-        "login"
-    );
+if (!data) {
 
     window.location.href =
         "login.html";
@@ -683,52 +801,173 @@ function logout() {
 }
 
 
-/* DARK MODE */
+/* TAMPILKAN DATA */
 
-function toggleTheme() {
+document.getElementById(
+    "nama"
+).textContent =
+    data.nama || "-";
 
-    document.body.classList.toggle(
-        "dark"
+
+document.getElementById(
+    "sekolah"
+).textContent =
+    data.sekolah || "-";
+
+
+document.getElementById(
+    "umur"
+).textContent =
+    data.umur || "-";
+
+
+document.getElementById(
+    "cita"
+).textContent =
+    data.cita || "-";
+
+
+document.getElementById(
+    "hobi"
+).textContent =
+    data.hobi || "-";
+
+
+document.getElementById(
+    "email"
+).textContent =
+    data.email || "-";
+
+
+/* =========================
+   FOTO PROFIL
+========================= */
+
+let fotoDB;
+
+
+const request =
+    indexedDB.open(
+        "DataDiriFotoDB",
+        1
     );
 
 
-    if (
-        document.body.classList.contains(
-            "dark"
-        )
-    ) {
+request.onsuccess =
+    function(event) {
 
-        localStorage.setItem(
-            "theme",
-            "dark"
+        fotoDB =
+            event.target.result;
+
+        tampilkanFoto();
+
+    };
+
+
+function tampilkanFoto() {
+
+    const transaction =
+        fotoDB.transaction(
+            ["foto"],
+            "readonly"
         );
 
-    } else {
 
-        localStorage.setItem(
-            "theme",
-            "light"
+    const store =
+        transaction.objectStore(
+            "foto"
         );
+
+
+    const request =
+        store.get(
+            "profil"
+        );
+
+
+    request.onsuccess =
+        function() {
+
+            const data =
+                request.result;
+
+
+            const img =
+                document.getElementById(
+                    "dashboardFoto"
+                );
+
+
+            const kosong =
+                document.getElementById(
+                    "dashboardFotoKosong"
+                );
+
+
+            if (!data) {
+
+                img.style.display =
+                    "none";
+
+                kosong.style.display =
+                    "flex";
+
+                return;
+
+            }
+
+
+            const url =
+                URL.createObjectURL(
+                    data.file
+                );
+
+
+            img.src =
+                url;
+
+
+            img.style.display =
+                "block";
+
+
+            kosong.style.display =
+                "none";
+
+        };
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    const yakin =
+        confirm(
+            "Apakah kamu yakin ingin logout?"
+        );
+
+
+    if (!yakin) {
+
+        return;
 
     }
 
-}
 
-
-/* LOAD THEME */
-
-if (
-    localStorage.getItem(
-        "theme"
-    ) === "dark"
-) {
-
-    document.body.classList.add(
-        "dark"
+    localStorage.setItem(
+        "login",
+        "false"
     );
 
-}
 
+    window.location.href =
+        "login.html";
+
+}
 
 </script>
 
