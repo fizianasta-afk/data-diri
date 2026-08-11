@@ -8,7 +8,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Edit Jadwal Sekolah</title>
+<title>Jadwal Pelajaran</title>
 
 <style>
 
@@ -36,9 +36,9 @@ body {
 
 .container {
 
-    max-width: 1000px;
-
     width: 100%;
+
+    max-width: 1000px;
 
     margin: auto;
 
@@ -48,9 +48,9 @@ body {
 
     background: white;
 
-    border-radius: 22px;
-
     padding: 25px;
+
+    border-radius: 22px;
 
     margin-bottom: 20px;
 
@@ -70,7 +70,7 @@ body {
 
 }
 
-.header-icon {
+.icon {
 
     font-size: 55px;
 
@@ -128,45 +128,19 @@ button {
 
     padding: 13px;
 
+    margin-top: 12px;
+
     border: none;
 
     border-radius: 10px;
 
-    margin-top: 12px;
+    background: #667eea;
 
     color: white;
-
-    font-size: 15px;
 
     font-weight: bold;
 
     cursor: pointer;
-
-    background: #667eea;
-
-}
-
-button:hover {
-
-    opacity: 0.9;
-
-}
-
-.add {
-
-    background: #2ecc71;
-
-}
-
-.save {
-
-    background: #3498db;
-
-}
-
-.delete {
-
-    background: #e74c3c;
 
 }
 
@@ -176,76 +150,119 @@ button:hover {
 
 }
 
-.form {
+.hidden {
 
-    background: #f6f7fb;
-
-    border-radius: 15px;
-
-    padding: 18px;
-
-    margin-top: 15px;
-
-    border-left: 5px solid #667eea;
+    display: none;
 
 }
 
-.form h3 {
+.day {
 
-    color: #667eea;
-
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 
 }
 
-label {
+.day-title {
 
-    display: block;
+    background: #667eea;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 12px 12px 0 0;
+
+    font-size: 18px;
 
     font-weight: bold;
 
-    color: #444;
+}
 
-    margin-top: 10px;
+.table-wrap {
 
-    margin-bottom: 6px;
+    overflow-x: auto;
 
 }
 
-input,
-select {
+table {
 
     width: 100%;
 
-    padding: 12px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 9px;
+    border-collapse: collapse;
 
     background: white;
 
 }
 
-.grid {
+th {
 
-    display: grid;
+    background: #f0f2ff;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    color: #555;
 
-    gap: 12px;
+    padding: 13px;
+
+    text-align: left;
 
 }
 
-.jam {
+td {
 
-    display: grid;
+    padding: 13px;
 
-    grid-template-columns:
-        1fr 1fr;
+    border-top: 1px solid #eee;
 
-    gap: 10px;
+}
+
+.waktu {
+
+    white-space: nowrap;
+
+    color: #667eea;
+
+    font-weight: bold;
+
+}
+
+.nama {
+
+    font-weight: bold;
+
+    color: #333;
+
+}
+
+.guru {
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+.istirahat {
+
+    background: #fff8e1;
+
+}
+
+.kegiatan {
+
+    background: #f3e5f5;
+
+}
+
+.empty {
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: #f6f7fb;
+
+    border-radius: 15px;
+
+    color: #777;
 
 }
 
@@ -261,17 +278,11 @@ select {
 
     font-size: 13px;
 
-    line-height: 1.6;
+    margin-bottom: 20px;
 
 }
 
-.hidden {
-
-    display: none;
-
-}
-
-@media(max-width:650px) {
+@media(max-width:600px) {
 
     body {
 
@@ -285,10 +296,12 @@ select {
 
     }
 
-    .grid {
+    th,
+    td {
 
-        grid-template-columns:
-            1fr;
+        padding: 10px;
+
+        font-size: 13px;
 
     }
 
@@ -305,25 +318,23 @@ select {
 <div class="container">
 
 
-<!-- =========================
-     PIN
-========================= -->
+<!-- PIN -->
 
 <div
     id="pinPage"
     class="box pin"
 >
 
-    <div class="header-icon">
+    <div class="icon">
         🔐
     </div>
 
     <h1>
-        Edit Jadwal
+        Jadwal Pelajaran
     </h1>
 
     <p>
-        Masukkan PIN Edit Jadwal
+        Masukkan PIN Jadwal
     </p>
 
 
@@ -340,7 +351,7 @@ select {
         onclick="cekPIN()"
     >
 
-        🔓 BUKA EDIT JADWAL
+        🔓 MASUK JADWAL
 
     </button>
 
@@ -357,28 +368,26 @@ select {
 </div>
 
 
-<!-- =========================
-     EDIT PAGE
-========================= -->
+<!-- JADWAL -->
 
 <div
-    id="editPage"
+    id="jadwalPage"
     class="hidden"
 >
 
 
 <div class="box header">
 
-    <div class="header-icon">
-        ✏️
+    <div class="icon">
+        📅
     </div>
 
     <h1>
-        Edit Jadwal Sekolah
+        Jadwal Pelajaran
     </h1>
 
-    <p>
-        Atur jadwal sesuai jadwal sekolah kamu
+    <p id="sekolah">
+        Jadwal Sekolah
     </p>
 
 </div>
@@ -389,55 +398,15 @@ select {
 
 <div class="info">
 
-💡 <b>Jenis kegiatan:</b>
-
-<br>
-
-📚 Pelajaran — mata pelajaran biasa
-
-<br>
-
-☕ Istirahat — waktu istirahat
-
-<br>
-
-🎯 Kegiatan — upacara, olahraga,
-ekstrakurikuler, dll.
+📚 Jadwal ini dibuat dan diatur sendiri
+oleh pengguna.
 
 </div>
 
 
-<div id="listForm"></div>
+<div id="jadwalContainer">
 
-
-<button
-    class="add"
-    onclick="tambah()"
->
-
-➕ TAMBAH JAM
-
-</button>
-
-
-<button
-    class="save"
-    onclick="simpan()"
->
-
-💾 SIMPAN JADWAL
-
-</button>
-
-
-<button
-    class="delete"
-    onclick="hapusSemua()"
->
-
-🗑️ HAPUS SEMUA JADWAL
-
-</button>
+</div>
 
 
 <button
@@ -462,9 +431,7 @@ ekstrakurikuler, dll.
 <script>
 
 
-/* =========================
-   LOGIN
-========================= */
+/* LOGIN */
 
 if (
     localStorage.getItem("login")
@@ -506,11 +473,11 @@ function cekPIN() {
 
 
     if (
-        pin !== user.pinEdit
+        pin !== user.pinJadwal
     ) {
 
         alert(
-            "❌ PIN Edit Jadwal salah!"
+            "❌ PIN Jadwal salah!"
         );
 
         return;
@@ -526,28 +493,20 @@ function cekPIN() {
 
 
     document.getElementById(
-        "editPage"
+        "jadwalPage"
     ).classList.remove(
         "hidden"
     );
 
 
-    tampilkanForm();
+    document.getElementById(
+        "sekolah"
+    ).textContent =
+        user.sekolah ||
+        "Jadwal Sekolah";
 
-}
 
-
-/* =========================
-   DATA
-========================= */
-
-function getJadwal() {
-
-    return JSON.parse(
-        localStorage.getItem(
-            "jadwal"
-        )
-    ) || [];
+    tampilkanJadwal();
 
 }
 
@@ -556,436 +515,302 @@ function getJadwal() {
    TAMPIL
 ========================= */
 
-function tampilkanForm() {
+function tampilkanJadwal() {
 
     const container =
         document.getElementById(
-            "listForm"
+            "jadwalContainer"
         );
 
 
     container.innerHTML = "";
 
 
-    const data =
-        getJadwal();
-
-
-    if (
-        data.length === 0
-    ) {
-
-        tambah();
-
-        return;
-
-    }
-
-
-    data.forEach(
-        item =>
-            buatForm(item)
-    );
-
-}
-
-
-/* =========================
-   BUAT FORM
-========================= */
-
-function buatForm(item = {}) {
-
-    const container =
-        document.getElementById(
-            "listForm"
-        );
-
-
-    const form =
-        document.createElement(
-            "div"
-        );
-
-
-    form.className =
-        "form";
-
-
-    form.innerHTML = `
-
-        <h3>
-            ⏰ Jam Jadwal
-        </h3>
-
-
-        <div class="grid">
-
-
-            <div>
-
-                <label>
-                    Hari
-                </label>
-
-                <select class="hari">
-
-                    <option value="">
-                        Pilih Hari
-                    </option>
-
-                    <option>
-                        Senin
-                    </option>
-
-                    <option>
-                        Selasa
-                    </option>
-
-                    <option>
-                        Rabu
-                    </option>
-
-                    <option>
-                        Kamis
-                    </option>
-
-                    <option>
-                        Jumat
-                    </option>
-
-                    <option>
-                        Sabtu
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div>
-
-                <label>
-                    Jenis
-                </label>
-
-                <select class="jenis">
-
-                    <option value="pelajaran">
-                        📚 Pelajaran
-                    </option>
-
-                    <option value="istirahat">
-                        ☕ Istirahat
-                    </option>
-
-                    <option value="kegiatan">
-                        🎯 Kegiatan
-                    </option>
-
-                </select>
-
-            </div>
-
-
-        </div>
-
-
-        <label>
-            Nama
-        </label>
-
-        <input
-            class="nama"
-            type="text"
-            placeholder="Contoh: Matematika"
-        >
-
-
-        <label>
-            Guru / Keterangan
-        </label>
-
-        <input
-            class="guru"
-            type="text"
-            placeholder="Contoh: Pak Budi"
-        >
-
-
-        <label>
-            Jam
-        </label>
-
-        <div class="jam">
-
-            <input
-                class="mulai"
-                type="time"
-            >
-
-            <input
-                class="selesai"
-                type="time"
-            >
-
-        </div>
-
-
-        <button
-            class="delete"
-            onclick="hapusForm(this)"
-        >
-
-            🗑️ HAPUS JAM INI
-
-        </button>
-
-    `;
-
-
-    container.appendChild(
-        form
-    );
-
-
-    form.querySelector(
-        ".hari"
-    ).value =
-        item.hari || "";
-
-
-    form.querySelector(
-        ".jenis"
-    ).value =
-        item.jenis ||
-        "pelajaran";
-
-
-    form.querySelector(
-        ".nama"
-    ).value =
-        item.nama ||
-        item.mapel ||
-        "";
-
-
-    form.querySelector(
-        ".guru"
-    ).value =
-        item.guru ||
-        "";
-
-
-    form.querySelector(
-        ".mulai"
-    ).value =
-        item.mulai ||
-        "";
-
-
-    form.querySelector(
-        ".selesai"
-    ).value =
-        item.selesai ||
-        "";
-
-}
-
-
-/* =========================
-   TAMBAH
-========================= */
-
-function tambah() {
-
-    buatForm();
-
-}
-
-
-/* =========================
-   HAPUS SATU
-========================= */
-
-function hapusForm(button) {
-
-    const form =
-        button.closest(
-            ".form"
-        );
-
-
-    form.remove();
-
-}
-
-
-/* =========================
-   SIMPAN
-========================= */
-
-function simpan() {
-
-    const forms =
-        document.querySelectorAll(
-            ".form"
-        );
-
-
-    const jadwal = [];
-
-
-    forms.forEach(
-        form => {
-
-            const hari =
-                form.querySelector(
-                    ".hari"
-                ).value;
-
-
-            const jenis =
-                form.querySelector(
-                    ".jenis"
-                ).value;
-
-
-            const nama =
-                form.querySelector(
-                    ".nama"
-                ).value.trim();
-
-
-            const guru =
-                form.querySelector(
-                    ".guru"
-                ).value.trim();
-
-
-            const mulai =
-                form.querySelector(
-                    ".mulai"
-                ).value;
-
-
-            const selesai =
-                form.querySelector(
-                    ".selesai"
-                ).value;
-
-
-            if (
-                !hari &&
-                !nama &&
-                !mulai &&
-                !selesai
-            ) {
-
-                return;
-
-            }
-
-
-            if (
-                !hari ||
-                !nama ||
-                !mulai ||
-                !selesai
-            ) {
-
-                return;
-
-            }
-
-
-            jadwal.push({
-
-                hari:
-                    hari,
-
-                jenis:
-                    jenis,
-
-                nama:
-                    nama,
-
-                guru:
-                    guru,
-
-                mulai:
-                    mulai,
-
-                selesai:
-                    selesai
-
-            });
-
-        }
-    );
+    const jadwal =
+        JSON.parse(
+            localStorage.getItem(
+                "jadwal"
+            )
+        ) || [];
 
 
     if (
         jadwal.length === 0
     ) {
 
-        alert(
-            "⚠️ Belum ada jadwal."
-        );
+        container.innerHTML = `
+
+            <div class="empty">
+
+                📭
+
+                <br><br>
+
+                Belum ada jadwal.
+
+                <br><br>
+
+                Silakan buka
+                <b>Edit Jadwal</b>
+                untuk membuat jadwal.
+
+            </div>
+
+        `;
 
         return;
 
     }
 
 
-    localStorage.setItem(
-        "jadwal",
-        JSON.stringify(
-            jadwal
-        )
-    );
+    const hariList = [
+
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+
+    ];
 
 
-    alert(
-        "✅ Jadwal berhasil disimpan!"
+    hariList.forEach(
+        hari => {
+
+            const data =
+                jadwal
+                .filter(
+                    item =>
+                        item.hari === hari
+                )
+                .sort(
+                    (a, b) =>
+                        a.mulai.localeCompare(
+                            b.mulai
+                        )
+                );
+
+
+            if (
+                data.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            const day =
+                document.createElement(
+                    "div"
+                );
+
+
+            day.className =
+                "day";
+
+
+            day.innerHTML = `
+
+                <div class="day-title">
+
+                    📅 ${hari}
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Jam
+                                </th>
+
+                                <th>
+                                    Kegiatan
+                                </th>
+
+                                <th>
+                                    Guru / Keterangan
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            `;
+
+
+            const tbody =
+                day.querySelector(
+                    "tbody"
+                );
+
+
+            data.forEach(
+                item => {
+
+                    const tr =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    if (
+                        item.jenis ===
+                        "istirahat"
+                    ) {
+
+                        tr.className =
+                            "istirahat";
+
+                    }
+
+
+                    if (
+                        item.jenis ===
+                        "kegiatan"
+                    ) {
+
+                        tr.className =
+                            "kegiatan";
+
+                    }
+
+
+                    let icon =
+                        "📚";
+
+
+                    if (
+                        item.jenis ===
+                        "istirahat"
+                    ) {
+
+                        icon =
+                            "☕";
+
+                    }
+
+
+                    if (
+                        item.jenis ===
+                        "kegiatan"
+                    ) {
+
+                        icon =
+                            "🎯";
+
+                    }
+
+
+                    tr.innerHTML = `
+
+                        <td class="waktu">
+
+                            ${escapeHTML(
+                                item.mulai
+                            )}
+
+                            -
+
+                            ${escapeHTML(
+                                item.selesai
+                            )}
+
+                        </td>
+
+
+                        <td class="nama">
+
+                            ${icon}
+
+                            ${escapeHTML(
+                                item.nama
+                            )}
+
+                        </td>
+
+
+                        <td class="guru">
+
+                            ${
+                                item.guru
+                                ? escapeHTML(
+                                    item.guru
+                                )
+                                : "-"
+                            }
+
+                        </td>
+
+                    `;
+
+
+                    tbody.appendChild(
+                        tr
+                    );
+
+                }
+            );
+
+
+            container.appendChild(
+                day
+            );
+
+        }
     );
 
 }
 
 
 /* =========================
-   HAPUS SEMUA
+   KEAMANAN HTML
 ========================= */
 
-function hapusSemua() {
+function escapeHTML(text) {
 
-    if (
-        !confirm(
-            "Hapus semua jadwal?"
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
         )
-    ) {
 
-        return;
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-    }
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-    localStorage.removeItem(
-        "jadwal"
-    );
-
-
-    document.getElementById(
-        "listForm"
-    ).innerHTML = "";
-
-
-    tambah();
-
-
-    alert(
-        "🗑️ Semua jadwal telah dihapus."
-    );
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
