@@ -2,8 +2,11 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Login - Data Diri</title>
 
@@ -17,11 +20,16 @@
         }
 
         body {
+
             min-height: 100vh;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
+            padding: 25px;
 
             background: linear-gradient(
                 135deg,
@@ -29,47 +37,74 @@
                 #764ba2
             );
 
-            padding: 20px;
         }
 
         .container {
+
             width: 100%;
-            max-width: 420px;
+
+            max-width: 430px;
 
             background: white;
 
             padding: 35px;
 
-            border-radius: 20px;
+            border-radius: 22px;
 
             box-shadow:
-                0 15px 40px rgba(0,0,0,0.2);
+                0 20px 50px rgba(
+                    0,
+                    0,
+                    0,
+                    0.2
+                );
+
+        }
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 60px;
+
+            margin-bottom: 10px;
+
         }
 
         h1 {
+
             text-align: center;
-            margin-bottom: 10px;
+
             color: #333;
+
+            margin-bottom: 8px;
+
         }
 
         .subtitle {
+
             text-align: center;
+
             color: #777;
+
             margin-bottom: 30px;
+
         }
 
         label {
+
             display: block;
 
             margin-top: 15px;
+
             margin-bottom: 7px;
 
             font-weight: bold;
 
-            color: #333;
         }
 
         input {
+
             width: 100%;
 
             padding: 14px;
@@ -81,13 +116,17 @@
             outline: none;
 
             font-size: 15px;
+
         }
 
         input:focus {
+
             border-color: #667eea;
+
         }
 
         button {
+
             width: 100%;
 
             padding: 14px;
@@ -96,7 +135,7 @@
 
             border: none;
 
-            border-radius: 10px;
+            border-radius: 11px;
 
             background: #667eea;
 
@@ -107,57 +146,67 @@
             font-weight: bold;
 
             cursor: pointer;
+
         }
 
         button:hover {
+
             background: #5568d9;
+
         }
 
         .register {
+
             text-align: center;
 
             margin-top: 20px;
 
-            color: #666;
+            color: #777;
+
         }
 
         .register a {
+
             color: #667eea;
 
             text-decoration: none;
 
             font-weight: bold;
-        }
 
-        .logo {
-            text-align: center;
-
-            font-size: 45px;
-
-            margin-bottom: 10px;
         }
 
     </style>
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
+
     <div class="logo">
-        👤
+        🔐
     </div>
 
-    <h1>Selamat Datang</h1>
+
+    <h1>
+        Selamat Datang
+    </h1>
+
 
     <p class="subtitle">
-        Masuk ke Data Diri
+        Masuk ke Website Data Diri
     </p>
+
 
     <form id="loginForm">
 
-        <label>Email</label>
+
+        <label>
+            Email
+        </label>
 
         <input
             type="email"
@@ -166,7 +215,10 @@
             required
         >
 
-        <label>Password</label>
+
+        <label>
+            Password
+        </label>
 
         <input
             type="password"
@@ -175,11 +227,16 @@
             required
         >
 
+
         <button type="submit">
-            🔐 MASUK
+
+            🔓 MASUK
+
         </button>
 
+
     </form>
+
 
     <div class="register">
 
@@ -191,69 +248,90 @@
 
     </div>
 
+
 </div>
 
 
 <script>
 
+
 document
 .getElementById("loginForm")
-.addEventListener("submit", function(e) {
+.addEventListener(
+    "submit",
+    function(e) {
 
-    e.preventDefault();
-
-    const email =
-        document.getElementById("email").value;
-
-    const password =
-        document.getElementById("password").value;
+        e.preventDefault();
 
 
-    const data =
-        JSON.parse(
-            localStorage.getItem("dataDiri")
-        );
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
 
 
-    if (!data) {
+        const password =
+            document.getElementById(
+                "password"
+            ).value;
 
-        alert(
-            "❌ Belum ada akun. Silakan daftar terlebih dahulu."
-        );
 
-        return;
+        const data =
+            JSON.parse(
+                localStorage.getItem(
+                    "dataDiri"
+                )
+            );
+
+
+        if (!data) {
+
+            alert(
+                "❌ Akun belum tersedia. Silakan daftar."
+            );
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+        if (
+            email === data.email &&
+            password === data.password
+        ) {
+
+            localStorage.setItem(
+                "login",
+                "true"
+            );
+
+
+            alert(
+                "✅ Login berhasil!"
+            );
+
+
+            window.location.href =
+                "dashboard.html";
+
+
+        } else {
+
+            alert(
+                "❌ Email atau password salah!"
+            );
+
+        }
 
     }
 
-
-    if (
-        email === data.email &&
-        password === data.password
-    ) {
-
-        localStorage.setItem(
-            "login",
-            "true"
-        );
-
-        alert(
-            "✅ Login berhasil!"
-        );
-
-        window.location.href =
-            "dashboard.html";
-
-    } else {
-
-        alert(
-            "❌ Email atau password salah!"
-        );
-
-    }
-
-});
+);
 
 </script>
+
 
 </body>
 
