@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>Edit Jadwal Pelajaran</title>
 
@@ -23,13 +23,14 @@ body {
 
     min-height: 100vh;
 
-    background: linear-gradient(
-        135deg,
-        #667eea,
-        #764ba2
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
 
-    padding: 25px;
+    padding: 20px;
 
 }
 
@@ -37,103 +38,107 @@ body {
 
     width: 100%;
 
-    max-width: 900px;
+    max-width: 850px;
 
     margin: auto;
 
 }
 
-/* PIN */
-
-.pin-box {
+.box {
 
     background: white;
 
-    padding: 35px;
+    padding: 25px;
 
     border-radius: 22px;
 
-    text-align: center;
-
     box-shadow:
-        0 20px 50px rgba(
+        0 15px 40px rgba(
             0,
             0,
             0,
-            0.2
+            0.18
         );
 
-}
-
-.pin-icon {
-
-    font-size: 60px;
-
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
 }
 
-.pin-box h1 {
+.header {
+
+    text-align: center;
+
+}
+
+.header .icon {
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+}
+
+.header h1 {
 
     color: #333;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
 }
 
-.pin-box p {
+.header p {
 
     color: #777;
 
-    margin-bottom: 25px;
+}
+
+.pin-box {
+
+    max-width: 450px;
+
+    margin: 50px auto;
+
+    text-align: center;
 
 }
 
-.pin-input {
+.pin-box input {
 
     width: 100%;
 
     padding: 15px;
 
-    border: 2px solid #ddd;
+    margin-top: 15px;
 
-    border-radius: 12px;
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
 
     text-align: center;
 
     font-size: 22px;
 
-    letter-spacing: 8px;
-
-    outline: none;
+    letter-spacing: 5px;
 
 }
-
-.pin-input:focus {
-
-    border-color: #667eea;
-
-}
-
-/* BUTTON */
 
 button {
 
     width: 100%;
 
-    padding: 14px;
+    padding: 13px;
 
-    margin-top: 15px;
+    margin-top: 12px;
 
     border: none;
 
-    border-radius: 11px;
-
-    background: #667eea;
+    border-radius: 10px;
 
     color: white;
 
-    font-size: 16px;
+    background: #667eea;
+
+    font-size: 15px;
 
     font-weight: bold;
 
@@ -147,115 +152,60 @@ button:hover {
 
 }
 
+.tambah {
+
+    background: #2ecc71;
+
+}
+
+.hapus-semua {
+
+    background: #e74c3c;
+
+}
+
 .back {
 
     background: #333;
 
 }
 
-.add {
+.form-jadwal {
 
-    background: #2ecc71;
+    background: #f6f7fb;
 
-}
+    padding: 18px;
 
-.delete {
+    border-radius: 15px;
 
-    width: auto;
-
-    margin: 0;
-
-    padding: 10px 14px;
-
-    background: #e74c3c;
+    margin-top: 15px;
 
 }
 
-/* EDIT PAGE */
-
-#editPage {
-
-    display: none;
-
-}
-
-.header {
-
-    background: white;
-
-    padding: 30px;
-
-    border-radius: 22px;
-
-    text-align: center;
-
-    margin-bottom: 20px;
-
-}
-
-.header h1 {
-
-    color: #333;
-
-    margin-bottom: 8px;
-
-}
-
-.header p {
-
-    color: #777;
-
-}
-
-/* HARI */
-
-.day {
-
-    background: white;
-
-    padding: 20px;
-
-    border-radius: 20px;
-
-    margin-bottom: 20px;
-
-    box-shadow:
-        0 10px 25px rgba(
-            0,
-            0,
-            0,
-            0.08
-        );
-
-}
-
-.day h2 {
+.form-jadwal h3 {
 
     color: #667eea;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 
 }
 
-/* JADWAL */
+label {
 
-.schedule {
+    display: block;
 
-    display: grid;
+    font-weight: bold;
 
-    grid-template-columns:
-        1fr
-        1fr
-        2fr
-        auto;
+    color: #444;
 
-    gap: 10px;
+    margin-top: 10px;
 
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 
 }
 
-.schedule input {
+input,
+select {
 
     width: 100%;
 
@@ -263,49 +213,77 @@ button:hover {
 
     border: 1px solid #ddd;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
     outline: none;
 
-}
-
-.schedule input:focus {
-
-    border-color: #667eea;
+    background: white;
 
 }
 
-.save {
+.jam {
 
-    background: #667eea;
+    display: grid;
 
-    margin-top: 5px;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
 
 }
 
-.message {
+.pelajaran {
 
-    text-align: center;
+    position: relative;
 
-    color: white;
+}
 
-    font-weight: bold;
+.hapus {
+
+    background: #e74c3c;
+
+}
+
+.info {
+
+    background: #f0f2ff;
+
+    padding: 14px;
+
+    border-radius: 10px;
 
     margin-top: 15px;
 
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
 }
 
-@media(max-width:650px) {
+.hidden {
 
-    .schedule {
+    display: none;
 
-        grid-template-columns: 1fr;
+}
+
+@media(max-width:600px) {
+
+    body {
+
+        padding: 12px;
 
     }
 
-    .delete {
+    .box {
 
-        width: 100%;
+        padding: 18px;
+
+    }
+
+    .jam {
+
+        grid-template-columns: 1fr;
 
     }
 
@@ -325,40 +303,50 @@ button:hover {
 <!-- PIN -->
 
 <div
-    class="pin-box"
     id="pinPage"
+    class="box pin-box"
 >
 
-    <div class="pin-icon">
-        🔐
+    <div class="header">
+
+        <div class="icon">
+            🔐
+        </div>
+
+        <h1>
+            Edit Jadwal
+        </h1>
+
+        <p>
+            Masukkan PIN Edit Jadwal
+        </p>
+
     </div>
 
-    <h1>
-        Edit Jadwal Pelajaran
-    </h1>
-
-    <p>
-        Masukkan PIN Edit Jadwal
-    </p>
 
     <input
         type="password"
         id="pin"
-        class="pin-input"
         maxlength="6"
         inputmode="numeric"
-        placeholder="••••"
+        placeholder="Masukkan PIN"
     >
 
+
     <button onclick="cekPIN()">
+
         🔓 BUKA EDIT JADWAL
+
     </button>
+
 
     <button
         class="back"
-        onclick="kembali()"
+        onclick="kembaliDashboard()"
     >
+
         ← KEMBALI
+
     </button>
 
 </div>
@@ -368,48 +356,89 @@ button:hover {
 
 <div
     id="editPage"
+    class="hidden"
 >
 
-    <div class="header">
 
-        <h1>
-            ✏️ Edit Jadwal
-        </h1>
+<div class="box header">
 
-        <p>
-            Atur jam dan mata pelajaran kamu
-        </p>
-
+    <div class="icon">
+        ✏️
     </div>
 
+    <h1>
+        Edit Jadwal Pelajaran
+    </h1>
 
-    <div id="jadwalForm"></div>
+    <p>
+        Atur jadwal pelajaran kamu sendiri
+    </p>
 
-
-    <button
-        class="save"
-        onclick="simpanJadwal()"
-    >
-
-        💾 SIMPAN JADWAL
-
-    </button>
+</div>
 
 
-    <button
-        class="back"
-        onclick="kembali()"
-    >
-
-        ← KEMBALI KE DASHBOARD
-
-    </button>
+<div class="box">
 
 
-    <div
-        id="message"
-        class="message"
-    ></div>
+<div class="info">
+
+💡 Kamu bisa menambahkan pelajaran
+sebanyak yang kamu inginkan.
+
+<br><br>
+
+Setelah selesai, tekan
+<b>Simpan Semua Jadwal</b>.
+
+</div>
+
+
+<div id="daftarForm">
+
+</div>
+
+
+<button
+    class="tambah"
+    onclick="tambahPelajaran()"
+>
+
+➕ TAMBAH PELAJARAN
+
+</button>
+
+
+<button
+    onclick="simpanSemua()"
+>
+
+💾 SIMPAN SEMUA JADWAL
+
+</button>
+
+
+<button
+    class="hapus-semua"
+    onclick="hapusSemua()"
+>
+
+🗑️ HAPUS SEMUA JADWAL
+
+</button>
+
+
+<button
+    class="back"
+    onclick="kembaliDashboard()"
+>
+
+← KEMBALI KE DASHBOARD
+
+</button>
+
+
+</div>
+
 
 </div>
 
@@ -420,7 +449,9 @@ button:hover {
 <script>
 
 
-/* CEK LOGIN */
+/* =========================
+   CEK LOGIN
+========================= */
 
 if (
     localStorage.getItem("login")
@@ -433,20 +464,29 @@ if (
 }
 
 
-/* HARI */
+/* =========================
+   DATA
+========================= */
 
-const hari = [
-
-    "Senin",
-    "Selasa",
-    "Rabu",
-    "Kamis",
-    "Jumat"
-
-];
+const data =
+    JSON.parse(
+        localStorage.getItem(
+            "dataDiri"
+        )
+    );
 
 
-/* CEK PIN */
+if (!data) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* =========================
+   CEK PIN
+========================= */
 
 function cekPIN() {
 
@@ -456,18 +496,12 @@ function cekPIN() {
         ).value;
 
 
-    const data =
-        JSON.parse(
-            localStorage.getItem(
-                "dataDiri"
-            )
-        );
-
-
-    if (!data) {
+    if (
+        pin !== data.pinEdit
+    ) {
 
         alert(
-            "❌ Data akun tidak ditemukan."
+            "❌ PIN Edit Jadwal salah!"
         );
 
         return;
@@ -475,151 +509,76 @@ function cekPIN() {
     }
 
 
-    if (pin === data.pinEdit) {
-
-        document.getElementById(
-            "pinPage"
-        ).style.display =
-            "none";
-
-
-        document.getElementById(
-            "editPage"
-        ).style.display =
-            "block";
+    document.getElementById(
+        "pinPage"
+    ).classList.add(
+        "hidden"
+    );
 
 
-        buatForm();
+    document.getElementById(
+        "editPage"
+    ).classList.remove(
+        "hidden"
+    );
 
-    }
 
-    else {
-
-        alert(
-            "❌ PIN Edit Jadwal salah!"
-        );
-
-        document.getElementById(
-            "pin"
-        ).value = "";
-
-    }
+    tampilkanForm();
 
 }
 
 
-/* BUAT FORM */
+/* =========================
+   AMBIL JADWAL
+========================= */
 
-function buatForm() {
+function ambilJadwal() {
 
-    const container =
+    return JSON.parse(
+        localStorage.getItem(
+            "jadwal"
+        )
+    ) || [];
+
+}
+
+
+/* =========================
+   TAMPIL FORM
+========================= */
+
+function tampilkanForm() {
+
+    const daftar =
         document.getElementById(
-            "jadwalForm"
+            "daftarForm"
         );
 
 
-    container.innerHTML = "";
+    daftar.innerHTML = "";
 
 
-    const data =
-        JSON.parse(
-            localStorage.getItem(
-                "jadwalBaru"
-            )
-        ) || {};
+    const jadwal =
+        ambilJadwal();
 
 
-    hari.forEach(
-        function(namaHari) {
+    if (
+        jadwal.length === 0
+    ) {
+
+        tambahPelajaran();
+
+        return;
+
+    }
 
 
-            const day =
-                document.createElement(
-                    "div"
-                );
+    jadwal.forEach(
+        function(item, index) {
 
-
-            day.className =
-                "day";
-
-
-            day.dataset.hari =
-                namaHari;
-
-
-            const title =
-                document.createElement(
-                    "h2"
-                );
-
-
-            title.textContent =
-                "📚 " + namaHari;
-
-
-            day.appendChild(
-                title
-            );
-
-
-            const daftar =
-                data[namaHari] || [];
-
-
-            if (
-                daftar.length > 0
-            ) {
-
-                daftar.forEach(
-                    function(item) {
-
-                        tambahBaris(
-                            day,
-                            item.mulai,
-                            item.selesai,
-                            item.pelajaran
-                        );
-
-                    }
-                );
-
-            }
-
-
-            const tambah =
-                document.createElement(
-                    "button"
-                );
-
-
-            tambah.className =
-                "add";
-
-
-            tambah.textContent =
-                "➕ Tambah Pelajaran";
-
-
-            tambah.onclick =
-                function() {
-
-                    tambahBaris(
-                        day,
-                        "",
-                        "",
-                        ""
-                    );
-
-                };
-
-
-            day.appendChild(
-                tambah
-            );
-
-
-            container.appendChild(
-                day
+            buatForm(
+                item,
+                index
             );
 
         }
@@ -628,240 +587,359 @@ function buatForm() {
 }
 
 
-/* TAMBAH BARIS */
+/* =========================
+   BUAT FORM
+========================= */
 
-function tambahBaris(
-    container,
-    mulai,
-    selesai,
-    pelajaran
+function buatForm(
+    item = {},
+    index = null
 ) {
 
+    const daftar =
+        document.getElementById(
+            "daftarForm"
+        );
 
-    const row =
+
+    const div =
         document.createElement(
             "div"
         );
 
 
-    row.className =
-        "schedule";
+    div.className =
+        "form-jadwal pelajaran";
 
 
-    const inputMulai =
-        document.createElement(
-            "input"
-        );
+    div.innerHTML = `
+
+        <h3>
+            📚 Pelajaran
+        </h3>
+
+        <label>
+            Hari
+        </label>
+
+        <select class="hari">
+
+            <option value="">
+                Pilih Hari
+            </option>
+
+            <option value="Senin">
+                Senin
+            </option>
+
+            <option value="Selasa">
+                Selasa
+            </option>
+
+            <option value="Rabu">
+                Rabu
+            </option>
+
+            <option value="Kamis">
+                Kamis
+            </option>
+
+            <option value="Jumat">
+                Jumat
+            </option>
+
+            <option value="Sabtu">
+                Sabtu
+            </option>
+
+        </select>
 
 
-    inputMulai.type =
-        "time";
+        <label>
+            Mata Pelajaran
+        </label>
+
+        <input
+            type="text"
+            class="mapel"
+            placeholder="Contoh: Matematika"
+        >
 
 
-    inputMulai.value =
-        mulai || "";
+        <label>
+            Guru
+        </label>
+
+        <input
+            type="text"
+            class="guru"
+            placeholder="Contoh: Pak Budi"
+        >
 
 
-    const inputSelesai =
-        document.createElement(
-            "input"
-        );
+        <label>
+            Jam Pelajaran
+        </label>
+
+        <div class="jam">
+
+            <input
+                type="time"
+                class="mulai"
+            >
+
+            <input
+                type="time"
+                class="selesai"
+            >
+
+        </div>
 
 
-    inputSelesai.type =
-        "time";
+        <button
+            class="hapus"
+            onclick="hapusForm(this)"
+        >
+
+            🗑️ Hapus Pelajaran
+
+        </button>
+
+    `;
 
 
-    inputSelesai.value =
-        selesai || "";
-
-
-    const inputPelajaran =
-        document.createElement(
-            "input"
-        );
-
-
-    inputPelajaran.type =
-        "text";
-
-
-    inputPelajaran.placeholder =
-        "Mata pelajaran";
-
-
-    inputPelajaran.value =
-        pelajaran || "";
-
-
-    const hapus =
-        document.createElement(
-            "button"
-        );
-
-
-    hapus.className =
-        "delete";
-
-
-    hapus.textContent =
-        "🗑️";
-
-
-    hapus.onclick =
-        function() {
-
-            row.remove();
-
-        };
-
-
-    row.appendChild(
-        inputMulai
+    daftar.appendChild(
+        div
     );
 
 
-    row.appendChild(
-        inputSelesai
-    );
+    div.querySelector(
+        ".hari"
+    ).value =
+        item.hari || "";
 
 
-    row.appendChild(
-        inputPelajaran
-    );
+    div.querySelector(
+        ".mapel"
+    ).value =
+        item.mapel || "";
 
 
-    row.appendChild(
-        hapus
-    );
+    div.querySelector(
+        ".guru"
+    ).value =
+        item.guru || "";
 
 
-    container.insertBefore(
-        row,
-        container.querySelector(
-            ".add"
-        )
-    );
+    div.querySelector(
+        ".mulai"
+    ).value =
+        item.mulai || "";
+
+
+    div.querySelector(
+        ".selesai"
+    ).value =
+        item.selesai || "";
 
 }
 
 
-/* SIMPAN */
+/* =========================
+   TAMBAH
+========================= */
 
-function simpanJadwal() {
+function tambahPelajaran() {
+
+    buatForm();
+
+}
 
 
-    const hasil = {};
+/* =========================
+   HAPUS FORM
+========================= */
 
+function hapusForm(button) {
 
-    const days =
-        document.querySelectorAll(
-            ".day"
+    const form =
+        button.closest(
+            ".pelajaran"
         );
 
 
-    days.forEach(
-        function(day) {
+    form.remove();
+
+}
 
 
-            const namaHari =
-                day.dataset.hari;
+/* =========================
+   SIMPAN
+========================= */
+
+function simpanSemua() {
+
+    const forms =
+        document.querySelectorAll(
+            ".pelajaran"
+        );
 
 
-            hasil[namaHari] =
-                [];
+    const jadwal = [];
 
 
-            const rows =
-                day.querySelectorAll(
-                    ".schedule"
-                );
+    forms.forEach(
+        function(form) {
+
+            const hari =
+                form.querySelector(
+                    ".hari"
+                ).value;
 
 
-            rows.forEach(
-                function(row) {
+            const mapel =
+                form.querySelector(
+                    ".mapel"
+                ).value.trim();
 
 
-                    const inputs =
-                        row.querySelectorAll(
-                            "input"
-                        );
+            const guru =
+                form.querySelector(
+                    ".guru"
+                ).value.trim();
 
 
-                    const mulai =
-                        inputs[0].value;
+            const mulai =
+                form.querySelector(
+                    ".mulai"
+                ).value;
 
 
-                    const selesai =
-                        inputs[1].value;
+            const selesai =
+                form.querySelector(
+                    ".selesai"
+                ).value;
 
 
-                    const pelajaran =
-                        inputs[2].value.trim();
+            if (
+                !hari &&
+                !mapel &&
+                !guru &&
+                !mulai &&
+                !selesai
+            ) {
+
+                return;
+
+            }
 
 
-                    if (
-                        mulai &&
-                        selesai &&
-                        pelajaran
-                    ) {
+            if (
+                !hari ||
+                !mapel ||
+                !mulai ||
+                !selesai
+            ) {
 
-                        hasil[
-                            namaHari
-                        ].push({
+                return;
 
-                            mulai:
-                                mulai,
+            }
 
-                            selesai:
-                                selesai,
 
-                            pelajaran:
-                                pelajaran
+            jadwal.push({
 
-                        });
+                hari:
+                    hari,
 
-                    }
+                mapel:
+                    mapel,
 
-                }
-            );
+                guru:
+                    guru,
+
+                mulai:
+                    mulai,
+
+                selesai:
+                    selesai
+
+            });
 
         }
     );
 
 
-    localStorage.setItem(
-        "jadwalBaru",
-        JSON.stringify(hasil)
-    );
+    if (
+        jadwal.length === 0
+    ) {
 
-
-    const message =
-        document.getElementById(
-            "message"
+        alert(
+            "⚠️ Belum ada jadwal yang diisi."
         );
 
+        return;
 
-    message.textContent =
-        "✅ Jadwal berhasil disimpan!";
+    }
 
 
-    setTimeout(
-        function() {
-
-            message.textContent =
-                "";
-
-        },
-        2500
+    localStorage.setItem(
+        "jadwal",
+        JSON.stringify(
+            jadwal
+        )
     );
+
+
+    alert(
+        "✅ Semua jadwal berhasil disimpan!"
+    );
+
 
 }
 
 
-/* KEMBALI */
+/* =========================
+   HAPUS SEMUA
+========================= */
 
-function kembali() {
+function hapusSemua() {
+
+    const yakin =
+        confirm(
+            "Hapus semua jadwal?"
+        );
+
+
+    if (!yakin) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "jadwal"
+    );
+
+
+    document.getElementById(
+        "daftarForm"
+    ).innerHTML = "";
+
+
+    alert(
+        "✅ Semua jadwal telah dihapus."
+    );
+
+
+}
+
+
+/* =========================
+   KEMBALI
+========================= */
+
+function kembaliDashboard() {
 
     window.location.href =
         "dashboard.html";
@@ -869,6 +947,7 @@ function kembali() {
 }
 
 </script>
+
 
 </body>
 
