@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Jadwal Pelajaran</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+        /* PIN */
+
+        .pin-box {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .pin-icon {
+            font-size: 55px;
+
+            margin-bottom: 15px;
+        }
+
+        .pin-box h1 {
+            margin-bottom: 10px;
+        }
+
+        .pin-box p {
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+        .pin-input {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 2px solid #ddd;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-size: 22px;
+
+            letter-spacing: 8px;
+
+            outline: none;
+        }
+
+        .pin-input:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 20px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #667eea;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5568d9;
+        }
+
+        .back {
+            background: #333;
+        }
+
+        /* EDIT */
+
+        #editPage {
+            display: none;
+        }
+
+        .header {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+
+            color: #333;
+        }
+
+        .header p {
+            color: #777;
+        }
+
+        .hari {
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .hari h2 {
+            color: #667eea;
+
+            margin-bottom: 15px;
+        }
+
+        .pelajaran {
+            display: flex;
+
+            gap: 10px;
+
+            margin-bottom: 10px;
+        }
+
+        .pelajaran input {
+            flex: 1;
+
+            padding: 12px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        .pelajaran input:focus {
+            border-color: #667eea;
+        }
+
+        .hapus {
+            width: auto;
+
+            margin: 0;
+
+            padding: 10px 15px;
+
+            background: #e74c3c;
+        }
+
+        .hapus:hover {
+            background: #c0392b;
+        }
+
+        .tambah {
+            margin-top: 5px;
+
+            background: #2ecc71;
+        }
+
+        .tambah:hover {
+            background: #27ae60;
+        }
+
+        .simpan {
+            background: #667eea;
+
+            margin-bottom: 10px;
+        }
+
+        .pesan {
+            text-align: center;
+
+            color: white;
+
+            font-weight: bold;
+
+            margin-top: 15px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- PIN -->
+
+    <div
+        class="pin-box"
+        id="pinPage"
+    >
+
+        <div class="pin-icon">
+            🔐
+        </div>
+
+        <h1>
+            Edit Jadwal
+        </h1>
+
+        <p>
+            Masukkan PIN Edit Jadwal
+        </p>
+
+        <input
+            type="password"
+            id="pin"
+            class="pin-input"
+            maxlength="6"
+            inputmode="numeric"
+            placeholder="••••"
+        >
+
+        <button onclick="cekPIN()">
+            🔓 BUKA EDIT JADWAL
+        </button>
+
+        <button
+            class="back"
+            onclick="kembali()"
+        >
+            ← KEMBALI
+        </button>
+
+    </div>
+
+
+    <!-- EDIT PAGE -->
+
+    <div id="editPage">
+
+        <div class="header">
+
+            <h1>
+                ✏️ Edit Jadwal Pelajaran
+            </h1>
+
+            <p>
+                Isi jadwal pelajaran kamu sendiri
+            </p>
+
+        </div>
+
+
+        <div id="formJadwal">
+        </div>
+
+
+        <button
+            class="simpan"
+            onclick="simpanJadwal()"
+        >
+            💾 SIMPAN JADWAL
+        </button>
+
+
+        <button
+            class="back"
+            onclick="kembali()"
+        >
+            ← KEMBALI KE DASHBOARD
+        </button>
+
+
+        <div
+            class="pesan"
+            id="pesan"
+        >
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* CEK LOGIN */
+
+if (
+    localStorage.getItem("login")
+    !== "true"
+) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* HARI */
+
+const hari = [
+
+    "Senin",
+    "Selasa",
+    "Rabu",
+    "Kamis",
+    "Jumat"
+
+];
+
+
+/* CEK PIN */
+
+function cekPIN() {
+
+    const pin =
+        document.getElementById("pin").value;
+
+
+    const data =
+        JSON.parse(
+            localStorage.getItem("dataDiri")
+        );
+
+
+    if (!data) {
+
+        alert(
+            "❌ Data akun tidak ditemukan."
+        );
+
+        return;
+
+    }
+
+
+    if (pin === data.pinEdit) {
+
+        document.getElementById(
+            "pinPage"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "editPage"
+        ).style.display = "block";
+
+
+        buatForm();
+
+
+    } else {
+
+        alert(
+            "❌ PIN Edit Jadwal salah!"
+        );
+
+
+        document.getElementById(
+            "pin"
+        ).value = "";
+
+    }
+
+}
+
+
+/* BUAT FORM */
+
+function buatForm() {
+
+    const container =
+        document.getElementById(
+            "formJadwal"
+        );
+
+
+    container.innerHTML = "";
+
+
+    const jadwal =
+        JSON.parse(
+            localStorage.getItem("jadwal")
+        ) || {};
+
+
+    hari.forEach(function(namaHari) {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "hari";
+
+
+        const title =
+            document.createElement("h2");
+
+        title.textContent =
+            "📚 " + namaHari;
+
+
+        div.appendChild(title);
+
+
+        const daftar =
+            jadwal[namaHari] || [""];
+
+
+        daftar.forEach(function(
+            pelajaran
+        ) {
+
+            tambahInput(
+                div,
+                pelajaran
+            );
+
+        });
+
+
+        const tombol =
+            document.createElement("button");
+
+        tombol.className =
+            "tambah";
+
+        tombol.textContent =
+            "➕ Tambah Pelajaran";
+
+
+        tombol.onclick = function() {
+
+            tambahInput(
+                div,
+                ""
+            );
+
+        };
+
+
+        div.appendChild(tombol);
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* TAMBAH INPUT */
+
+function tambahInput(
+    container,
+    nilai
+) {
+
+    const baris =
+        document.createElement("div");
+
+    baris.className =
+        "pelajaran";
+
+
+    const input =
+        document.createElement("input");
+
+    input.type = "text";
+
+    input.placeholder =
+        "Nama pelajaran...";
+
+    input.value =
+        nilai;
+
+
+    const hapus =
+        document.createElement("button");
+
+    hapus.className =
+        "hapus";
+
+    hapus.textContent =
+        "🗑️";
+
+
+    hapus.onclick = function() {
+
+        baris.remove();
+
+    };
+
+
+    baris.appendChild(input);
+
+    baris.appendChild(hapus);
+
+
+    container.insertBefore(
+        baris,
+        container.lastElementChild
+    );
+
+}
+
+
+/* SIMPAN JADWAL */
+
+function simpanJadwal() {
+
+    const hasil = {};
+
+
+    const bagian =
+        document.querySelectorAll(
+            ".hari"
+        );
+
+
+    bagian.forEach(function(
+        bagianHari,
+        index
+    ) {
+
+        const namaHari =
+            hari[index];
+
+
+        const inputs =
+            bagianHari.querySelectorAll(
+                "input"
+            );
+
+
+        hasil[namaHari] = [];
+
+
+        inputs.forEach(function(input) {
+
+            const nilai =
+                input.value.trim();
+
+
+            if (nilai !== "") {
+
+                hasil[namaHari].push(
+                    nilai
+                );
+
+            }
+
+        });
+
+    });
+
+
+    localStorage.setItem(
+        "jadwal",
+        JSON.stringify(hasil)
+    );
+
+
+    document.getElementById(
+        "pesan"
+    ).textContent =
+        "✅ Jadwal berhasil disimpan!";
+
+
+    setTimeout(function() {
+
+        document.getElementById(
+            "pesan"
+        ).textContent = "";
+
+    }, 2500);
+
+}
+
+
+/* KEMBALI */
+
+function kembali() {
+
+    window.location.href =
+        "dashboard.html";
+
+}
+
+
+</script>
+
+</body>
+
+</html>
