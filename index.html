@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register Data Diri</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 10px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5568d9;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .login a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .pin-info {
+            background: #f3f4ff;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #555;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📝 Register</h1>
+
+    <p class="subtitle">
+        Buat akun data diri kamu
+    </p>
+
+    <form id="registerForm">
+
+        <label>Nama</label>
+        <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan nama"
+            required
+        >
+
+        <label>Sekolah</label>
+        <input
+            type="text"
+            id="sekolah"
+            placeholder="Masukkan nama sekolah"
+            required
+        >
+
+        <label>Umur</label>
+        <input
+            type="number"
+            id="umur"
+            placeholder="Masukkan umur"
+            min="1"
+            max="100"
+            required
+        >
+
+        <label>Cita-cita</label>
+        <input
+            type="text"
+            id="cita"
+            placeholder="Contoh: Programmer"
+            required
+        >
+
+        <label>Hobi</label>
+        <input
+            type="text"
+            id="hobi"
+            placeholder="Contoh: Bermain game"
+            required
+        >
+
+        <label>Email</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="contoh@email.com"
+            required
+        >
+
+        <label>Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Buat password"
+            required
+        >
+
+        <label>PIN Jadwal Pelajaran</label>
+        <input
+            type="password"
+            id="pinJadwal"
+            placeholder="Contoh: 1234"
+            maxlength="6"
+            inputmode="numeric"
+            required
+        >
+
+        <label>PIN Edit Jadwal</label>
+        <input
+            type="password"
+            id="pinEdit"
+            placeholder="Contoh: 5678"
+            maxlength="6"
+            inputmode="numeric"
+            required
+        >
+
+        <div class="pin-info">
+            🔐 PIN Jadwal digunakan untuk membuka jadwal.
+            <br><br>
+            ✏️ PIN Edit Jadwal digunakan untuk mengubah jadwal.
+        </div>
+
+        <button type="submit">
+            🚀 DAFTAR
+        </button>
+
+    </form>
+
+    <div class="login">
+        Sudah punya akun?
+        <a href="#">Masuk</a>
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const data = {
+        nama: document.getElementById("nama").value,
+        sekolah: document.getElementById("sekolah").value,
+        umur: document.getElementById("umur").value,
+        cita: document.getElementById("cita").value,
+        hobi: document.getElementById("hobi").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        pinJadwal: document.getElementById("pinJadwal").value,
+        pinEdit: document.getElementById("pinEdit").value
+    };
+
+    localStorage.setItem("dataDiri", JSON.stringify(data));
+
+    alert("✅ Registrasi berhasil!");
+
+});
+
+</script>
+
+</body>
+</html>
