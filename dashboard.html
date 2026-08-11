@@ -2,10 +2,13 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dashboard - Data Diri</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Data Diri</title>
 
     <style>
 
@@ -17,13 +20,30 @@
         }
 
         body {
+
             min-height: 100vh;
+
             background: #f4f6fb;
+
+            color: #222;
+
+            transition: 0.3s;
+
         }
+
+        body.dark {
+
+            background: #121212;
+
+            color: white;
+
+        }
+
 
         /* HEADER */
 
         header {
+
             background: linear-gradient(
                 135deg,
                 #667eea,
@@ -34,50 +54,152 @@
 
             padding: 25px;
 
-            text-align: center;
+            position: relative;
+
+        }
+
+        .header-content {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
         }
 
         header h1 {
-            margin-bottom: 8px;
+
+            margin-bottom: 6px;
+
         }
+
+
+        /* DARK MODE */
+
+        .theme-btn {
+
+            width: auto;
+
+            padding: 10px 15px;
+
+            margin: 0;
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.2
+            );
+
+        }
+
 
         /* CONTAINER */
 
         .container {
+
             width: 90%;
-            max-width: 1000px;
+
+            max-width: 1100px;
 
             margin: 30px auto;
+
         }
+
 
         /* PROFILE */
 
         .profile {
+
             background: white;
 
             padding: 25px;
 
-            border-radius: 18px;
+            border-radius: 20px;
 
             margin-bottom: 25px;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.08);
+                0 10px 30px rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
         }
 
-        .profile h2 {
-            margin-bottom: 15px;
+        body.dark .profile,
+        body.dark .card {
+
+            background: #1e1e1e;
+
         }
 
-        .profile p {
-            margin: 8px 0;
+        .avatar {
 
-            color: #555;
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 40px;
+
+            flex-shrink: 0;
+
         }
+
+        .profile-info h2 {
+
+            margin-bottom: 8px;
+
+        }
+
+        .profile-info p {
+
+            color: #777;
+
+        }
+
+        body.dark .profile-info p {
+
+            color: #bbb;
+
+        }
+
 
         /* MENU */
 
         .menu {
+
             display: grid;
 
             grid-template-columns:
@@ -87,56 +209,91 @@
                 );
 
             gap: 20px;
+
         }
 
+
+        /* CARD */
+
         .card {
+
             background: white;
 
-            padding: 30px;
+            padding: 28px;
 
-            border-radius: 18px;
+            border-radius: 20px;
 
             text-align: center;
 
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.08);
-
-            transition: 0.2s;
-
             cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(
+                    0,
+                    0,
+                    0,
+                    0.07
+                );
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+
         }
 
         .card:hover {
-            transform: translateY(-5px);
+
+            transform:
+                translateY(-7px);
 
             box-shadow:
-                0 12px 30px rgba(0,0,0,0.12);
+                0 15px 35px rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+
         }
 
         .icon {
-            font-size: 45px;
+
+            font-size: 50px;
 
             margin-bottom: 15px;
+
         }
 
         .card h3 {
+
             margin-bottom: 8px;
+
         }
 
         .card p {
+
             color: #777;
 
             font-size: 14px;
+
         }
+
+        body.dark .card p {
+
+            color: #bbb;
+
+        }
+
 
         /* LOGOUT */
 
         .logout {
-            margin-top: 25px;
 
             width: 100%;
 
             padding: 15px;
+
+            margin-top: 25px;
 
             border: none;
 
@@ -151,10 +308,53 @@
             font-weight: bold;
 
             cursor: pointer;
+
         }
 
         .logout:hover {
+
             background: #c0392b;
+
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            text-align: center;
+
+            color: #888;
+
+            margin-top: 30px;
+
+            padding-bottom: 20px;
+
+            font-size: 13px;
+
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:600px) {
+
+            .header-content {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
+            .profile {
+
+                flex-direction: column;
+
+                text-align: center;
+
+            }
+
         }
 
     </style>
@@ -165,13 +365,35 @@
 <body>
 
 
+<!-- HEADER -->
+
 <header>
 
-    <h1>👋 Dashboard</h1>
+    <div class="header-content">
 
-    <p>
-        Selamat datang di Website Data Diri
-    </p>
+        <div>
+
+            <h1 id="sapaan">
+                👋 Selamat Datang
+            </h1>
+
+            <p>
+                Website Data Diri Kamu
+            </p>
+
+        </div>
+
+
+        <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+        >
+
+            🌙 Mode
+
+        </button>
+
+    </div>
 
 </header>
 
@@ -179,36 +401,51 @@
 <div class="container">
 
 
-    <!-- DATA DIRI -->
+    <!-- PROFILE -->
 
     <div class="profile">
 
-        <h2>👤 Data Diri</h2>
+        <div class="avatar">
 
-        <p>
-            <b>Nama:</b>
-            <span id="nama">-</span>
-        </p>
+            👤
 
-        <p>
-            <b>Sekolah:</b>
-            <span id="sekolah">-</span>
-        </p>
+        </div>
 
-        <p>
-            <b>Umur:</b>
-            <span id="umur">-</span>
-        </p>
 
-        <p>
-            <b>Cita-cita:</b>
-            <span id="cita">-</span>
-        </p>
+        <div class="profile-info">
 
-        <p>
-            <b>Hobi:</b>
-            <span id="hobi">-</span>
-        </p>
+            <h2 id="nama">
+                Nama
+            </h2>
+
+            <p>
+
+                🏫
+                <span id="sekolah">
+                    Sekolah
+                </span>
+
+            </p>
+
+            <p>
+
+                🎯
+                <span id="cita">
+                    Cita-cita
+                </span>
+
+            </p>
+
+            <p>
+
+                🎮
+                <span id="hobi">
+                    Hobi
+                </span>
+
+            </p>
+
+        </div>
 
     </div>
 
@@ -230,17 +467,17 @@
             </div>
 
             <h3>
-                Masuk Jadwal Pelajaran
+                Jadwal Pelajaran
             </h3>
 
             <p>
-                Melihat jadwal pelajaran
+                Lihat jadwal pelajaran
             </p>
 
         </div>
 
 
-        <!-- EDIT JADWAL -->
+        <!-- EDIT -->
 
         <div
             class="card"
@@ -252,17 +489,17 @@
             </div>
 
             <h3>
-                Edit Jadwal Pelajaran
+                Edit Jadwal
             </h3>
 
             <p>
-                Mengubah jadwal pelajaran
+                Atur jadwal pelajaran
             </p>
 
         </div>
 
 
-        <!-- HASIL KARYA -->
+        <!-- EXCEL -->
 
         <div
             class="card"
@@ -278,13 +515,13 @@
             </h3>
 
             <p>
-                Melihat hasil karya Excel
+                Simpan dan lihat karya Excel
             </p>
 
         </div>
 
 
-        <!-- DATA DIRI -->
+        <!-- PROFIL -->
 
         <div
             class="card"
@@ -296,11 +533,11 @@
             </div>
 
             <h3>
-                Data Diri
+                Edit Data Diri
             </h3>
 
             <p>
-                Melihat dan mengedit data diri
+                Ubah informasi diri
             </p>
 
         </div>
@@ -315,8 +552,17 @@
         class="logout"
         onclick="logout()"
     >
+
         🚪 KELUAR
+
     </button>
+
+
+    <footer>
+
+        Website Data Diri © 2026
+
+    </footer>
 
 
 </div>
@@ -338,30 +584,47 @@ if (
 }
 
 
-/* AMBIL DATA */
+/* DATA */
 
 const data =
     JSON.parse(
-        localStorage.getItem("dataDiri")
+        localStorage.getItem(
+            "dataDiri"
+        )
     );
 
 
 if (data) {
 
-    document.getElementById("nama")
-        .textContent = data.nama;
+    document.getElementById(
+        "nama"
+    ).textContent =
+        data.nama;
 
-    document.getElementById("sekolah")
-        .textContent = data.sekolah;
 
-    document.getElementById("umur")
-        .textContent = data.umur;
+    document.getElementById(
+        "sekolah"
+    ).textContent =
+        data.sekolah;
 
-    document.getElementById("cita")
-        .textContent = data.cita;
 
-    document.getElementById("hobi")
-        .textContent = data.hobi;
+    document.getElementById(
+        "cita"
+    ).textContent =
+        data.cita;
+
+
+    document.getElementById(
+        "hobi"
+    ).textContent =
+        data.hobi;
+
+
+    document.getElementById(
+        "sapaan"
+    ).textContent =
+        "👋 Halo, " +
+        data.nama;
 
 }
 
@@ -386,7 +649,7 @@ function editJadwal() {
 }
 
 
-/* HASIL KARYA */
+/* KARYA */
 
 function bukaKarya() {
 
@@ -396,7 +659,7 @@ function bukaKarya() {
 }
 
 
-/* DATA DIRI */
+/* PROFIL */
 
 function bukaProfil() {
 
@@ -410,7 +673,9 @@ function bukaProfil() {
 
 function logout() {
 
-    localStorage.removeItem("login");
+    localStorage.removeItem(
+        "login"
+    );
 
     window.location.href =
         "login.html";
@@ -418,7 +683,55 @@ function logout() {
 }
 
 
+/* DARK MODE */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "dark"
+    );
+
+
+    if (
+        document.body.classList.contains(
+            "dark"
+        )
+    ) {
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
+    } else {
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
+
+    }
+
+}
+
+
+/* LOAD THEME */
+
+if (
+    localStorage.getItem(
+        "theme"
+    ) === "dark"
+) {
+
+    document.body.classList.add(
+        "dark"
+    );
+
+}
+
+
 </script>
+
 
 </body>
 
