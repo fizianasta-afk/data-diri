@@ -606,7 +606,14 @@ PIN Edit Jadwal Sekarang
 >
 
 ← KEMBALI KE DASHBOARD
+<button
+    class="danger"
+    onclick="resetData()"
+>
 
+🗑️ RESET SEMUA DATA
+
+</button>
 </button>
 
 
@@ -1260,6 +1267,12 @@ function tampilkanFotoDashboard() {
                 "none";
 
         };
+
+}
+      function resetData() {
+
+    window.location.href =
+        "reset.html";
 
 }
 </script>
