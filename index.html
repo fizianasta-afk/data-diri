@@ -3,199 +3,280 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Register - Data Diri</title>
+<title>Register Data Diri</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        body {
+body {
 
-            min-height: 100vh;
+    min-height: 100vh;
 
-            display: flex;
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
 
-            justify-content: center;
+    padding: 25px;
 
-            align-items: center;
+}
 
-            padding: 25px;
+.container {
 
-            background: linear-gradient(
-                135deg,
-                #667eea,
-                #764ba2
-            );
+    width: 100%;
 
-        }
+    max-width: 600px;
 
-        .container {
+    margin: auto;
 
-            width: 100%;
+}
 
-            max-width: 550px;
+.box {
 
-            background: white;
+    background: white;
 
-            padding: 30px;
+    padding: 30px;
 
-            border-radius: 22px;
+    border-radius: 25px;
 
-            box-shadow:
-                0 20px 50px rgba(
-                    0,
-                    0,
-                    0,
-                    0.2
-                );
+    box-shadow:
+        0 20px 50px rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
 
-        }
+}
 
-        .logo {
+.logo {
 
-            text-align: center;
+    text-align: center;
 
-            font-size: 55px;
+    font-size: 60px;
 
-            margin-bottom: 10px;
+    margin-bottom: 10px;
 
-        }
+}
 
-        h1 {
+h1 {
 
-            text-align: center;
+    text-align: center;
 
-            color: #333;
+    color: #333;
 
-            margin-bottom: 8px;
+    margin-bottom: 8px;
 
-        }
+}
 
-        .subtitle {
+.subtitle {
 
-            text-align: center;
+    text-align: center;
 
-            color: #777;
+    color: #777;
 
-            margin-bottom: 25px;
+    margin-bottom: 25px;
 
-        }
+}
 
-        label {
+.section {
 
-            display: block;
+    margin-top: 25px;
 
-            margin-top: 14px;
+    padding-top: 20px;
 
-            margin-bottom: 6px;
+    border-top: 1px solid #eee;
 
-            font-weight: bold;
+}
 
-            color: #333;
+.section h2 {
 
-        }
+    color: #667eea;
 
-        input {
+    font-size: 19px;
 
-            width: 100%;
+    margin-bottom: 15px;
 
-            padding: 13px;
+}
 
-            border: 1px solid #ddd;
+label {
 
-            border-radius: 10px;
+    display: block;
 
-            outline: none;
+    margin-top: 14px;
 
-            font-size: 15px;
+    margin-bottom: 7px;
 
-        }
+    font-weight: bold;
 
-        input:focus {
+    color: #333;
 
-            border-color: #667eea;
+}
 
-        }
+input {
 
-        .pin-info {
+    width: 100%;
 
-            background: #f3f4ff;
+    padding: 13px;
 
-            padding: 15px;
+    border: 1px solid #ddd;
 
-            border-radius: 12px;
+    border-radius: 10px;
 
-            margin-top: 20px;
+    font-size: 15px;
 
-            color: #555;
+    outline: none;
 
-            font-size: 13px;
+}
 
-            line-height: 1.5;
+input:focus {
 
-        }
+    border-color: #667eea;
 
-        button {
+}
 
-            width: 100%;
+.input-group {
 
-            padding: 14px;
+    display: flex;
 
-            margin-top: 20px;
+    gap: 8px;
 
-            border: none;
+}
 
-            border-radius: 11px;
+.input-group input {
 
-            background: #667eea;
+    flex: 1;
 
-            color: white;
+}
 
-            font-size: 16px;
+.show {
 
-            font-weight: bold;
+    width: auto;
 
-            cursor: pointer;
+    margin: 0;
 
-        }
+    padding: 10px 14px;
 
-        button:hover {
+    background: #777;
 
-            background: #5568d9;
+    border: none;
 
-        }
+    color: white;
 
-        .login {
+    border-radius: 10px;
 
-            text-align: center;
+    cursor: pointer;
 
-            margin-top: 20px;
+}
 
-            color: #777;
+button {
 
-        }
+    width: 100%;
 
-        .login a {
+    padding: 14px;
 
-            color: #667eea;
+    margin-top: 20px;
 
-            text-decoration: none;
+    border: none;
 
-            font-weight: bold;
+    border-radius: 11px;
 
-        }
+    background: #667eea;
 
-    </style>
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+button:hover {
+
+    background: #5568d9;
+
+}
+
+.info {
+
+    background: #f3f4ff;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-top: 15px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+.login {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #777;
+
+}
+
+.login a {
+
+    color: #667eea;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+}
+
+.error {
+
+    color: #e74c3c;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+}
+
+@media(max-width:600px) {
+
+    body {
+
+        padding: 15px;
+
+    }
+
+    .box {
+
+        padding: 20px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -205,178 +286,273 @@
 
 <div class="container">
 
-
-    <div class="logo">
-        👤
-    </div>
+<div class="box">
 
 
-    <h1>
-        Buat Akun
-    </h1>
+<div class="logo">
+📝
+</div>
 
 
-    <p class="subtitle">
-        Daftarkan data diri kamu
-    </p>
+<h1>
+Register Data Diri
+</h1>
 
 
-    <form id="registerForm">
+<p class="subtitle">
+Buat akun untuk menggunakan website
+</p>
 
 
-        <label>
-            Nama
-        </label>
-
-        <input
-            type="text"
-            id="nama"
-            placeholder="Nama lengkap"
-            required
-        >
+<form id="registerForm">
 
 
-        <label>
-            Sekolah
-        </label>
+<!-- DATA DIRI -->
 
-        <input
-            type="text"
-            id="sekolah"
-            placeholder="Nama sekolah"
-            required
-        >
+<div class="section">
+
+<h2>
+👤 Data Diri
+</h2>
 
 
-        <label>
-            Umur
-        </label>
+<label>
+Nama
+</label>
 
-        <input
-            type="number"
-            id="umur"
-            placeholder="Umur"
-            min="1"
-            max="100"
-            required
-        >
+<input
+    type="text"
+    id="nama"
+    placeholder="Masukkan nama"
+    required
+>
 
 
-        <label>
-            Cita-cita
-        </label>
+<label>
+Sekolah
+</label>
 
-        <input
-            type="text"
-            id="cita"
-            placeholder="Contoh: Programmer"
-            required
-        >
-
-
-        <label>
-            Hobi
-        </label>
-
-        <input
-            type="text"
-            id="hobi"
-            placeholder="Contoh: Bermain game"
-            required
-        >
+<input
+    type="text"
+    id="sekolah"
+    placeholder="Masukkan nama sekolah"
+    required
+>
 
 
-        <label>
-            Email
-        </label>
+<label>
+Umur
+</label>
 
-        <input
-            type="email"
-            id="email"
-            placeholder="contoh@email.com"
-            required
-        >
-
-
-        <label>
-            Password
-        </label>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Buat password"
-            required
-        >
+<input
+    type="number"
+    id="umur"
+    min="5"
+    max="100"
+    placeholder="Masukkan umur"
+    required
+>
 
 
-        <label>
-            PIN Jadwal
-        </label>
+<label>
+Cita-cita
+</label>
 
-        <input
-            type="password"
-            id="pinJadwal"
-            placeholder="Contoh: 1234"
-            maxlength="6"
-            inputmode="numeric"
-            required
-        >
+<input
+    type="text"
+    id="cita"
+    placeholder="Contoh: Programmer"
+    required
+>
 
 
-        <label>
-            PIN Edit Jadwal
-        </label>
+<label>
+Hobi
+</label>
 
-        <input
-            type="password"
-            id="pinEdit"
-            placeholder="Contoh: 5678"
-            maxlength="6"
-            inputmode="numeric"
-            required
-        >
+<input
+    type="text"
+    id="hobi"
+    placeholder="Contoh: Bermain game"
+    required
+>
 
-
-        <div class="pin-info">
-
-            🔐 <b>PIN Jadwal</b>
-            digunakan untuk melihat jadwal.
-
-            <br><br>
-
-            ✏️ <b>PIN Edit Jadwal</b>
-            digunakan untuk mengubah jadwal.
-
-        </div>
+</div>
 
 
-        <button type="submit">
+<!-- AKUN -->
 
-            🚀 DAFTAR
+<div class="section">
 
-        </button>
+<h2>
+🔐 Akun
+</h2>
 
 
-    </form>
+<label>
+Email
+</label>
+
+<input
+    type="email"
+    id="email"
+    placeholder="contoh@email.com"
+    required
+>
 
 
-    <div class="login">
+<label>
+Password
+</label>
 
-        Sudah punya akun?
+<div class="input-group">
 
-        <a href="login.html">
-            Masuk
-        </a>
+<input
+    type="password"
+    id="password"
+    placeholder="Minimal 6 karakter"
+    required
+>
 
-    </div>
+<button
+    type="button"
+    class="show"
+    onclick="lihatPassword()"
+>
+👁️
+</button>
 
+</div>
+
+
+<div class="info">
+
+🔒 Password minimal
+<b>6 karakter</b>.
+
+Jangan gunakan password yang
+mudah ditebak.
+
+</div>
+
+</div>
+
+
+<!-- PIN -->
+
+<div class="section">
+
+<h2>
+🔢 PIN Keamanan
+</h2>
+
+
+<label>
+PIN Jadwal
+</label>
+
+<div class="input-group">
+
+<input
+    type="password"
+    id="pinJadwal"
+    maxlength="6"
+    inputmode="numeric"
+    placeholder="4-6 angka"
+    required
+>
+
+<button
+    type="button"
+    class="show"
+    onclick="lihatPIN('pinJadwal')"
+>
+👁️
+</button>
+
+</div>
+
+
+<label>
+PIN Edit Jadwal
+</label>
+
+<div class="input-group">
+
+<input
+    type="password"
+    id="pinEdit"
+    maxlength="6"
+    inputmode="numeric"
+    placeholder="4-6 angka"
+    required
+>
+
+<button
+    type="button"
+    class="show"
+    onclick="lihatPIN('pinEdit')"
+>
+👁️
+</button>
+
+</div>
+
+
+<div class="info">
+
+🔐 PIN digunakan untuk:
+
+<br><br>
+
+📅 Membuka Jadwal Pelajaran
+
+<br>
+
+✏️ Membuka Edit Jadwal
+
+<br><br>
+
+Sebaiknya gunakan dua PIN
+yang berbeda.
+
+</div>
+
+</div>
+
+
+<button type="submit">
+
+🚀 BUAT AKUN
+
+</button>
+
+
+</form>
+
+
+<div class="login">
+
+Sudah punya akun?
+
+<a href="login.html">
+Login
+</a>
+
+</div>
+
+
+</div>
 
 </div>
 
 
 <script>
 
+
+/* =========================
+   REGISTER
+========================= */
 
 document
 .getElementById("registerForm")
@@ -387,52 +563,172 @@ document
         e.preventDefault();
 
 
+        const nama =
+            document.getElementById(
+                "nama"
+            ).value.trim();
+
+
+        const sekolah =
+            document.getElementById(
+                "sekolah"
+            ).value.trim();
+
+
+        const umur =
+            document.getElementById(
+                "umur"
+            ).value;
+
+
+        const cita =
+            document.getElementById(
+                "cita"
+            ).value.trim();
+
+
+        const hobi =
+            document.getElementById(
+                "hobi"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim()
+            .toLowerCase();
+
+
+        const password =
+            document.getElementById(
+                "password"
+            ).value;
+
+
+        const pinJadwal =
+            document.getElementById(
+                "pinJadwal"
+            ).value;
+
+
+        const pinEdit =
+            document.getElementById(
+                "pinEdit"
+            ).value;
+
+
+        /* VALIDASI PASSWORD */
+
+        if (
+            password.length < 6
+        ) {
+
+            alert(
+                "❌ Password minimal 6 karakter."
+            );
+
+            return;
+
+        }
+
+
+        /* VALIDASI EMAIL */
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (
+            !emailPattern.test(
+                email
+            )
+        ) {
+
+            alert(
+                "❌ Format email tidak valid."
+            );
+
+            return;
+
+        }
+
+
+        /* VALIDASI PIN */
+
+        if (
+            !/^[0-9]{4,6}$/.test(
+                pinJadwal
+            )
+        ) {
+
+            alert(
+                "❌ PIN Jadwal harus 4-6 angka."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            !/^[0-9]{4,6}$/.test(
+                pinEdit
+            )
+        ) {
+
+            alert(
+                "❌ PIN Edit harus 4-6 angka."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            pinJadwal === pinEdit
+        ) {
+
+            alert(
+                "⚠️ PIN Jadwal dan PIN Edit harus berbeda."
+            );
+
+            return;
+
+        }
+
+
+        /* SIMPAN */
+
         const data = {
 
             nama:
-                document.getElementById(
-                    "nama"
-                ).value.trim(),
+                nama,
 
             sekolah:
-                document.getElementById(
-                    "sekolah"
-                ).value.trim(),
+                sekolah,
 
             umur:
-                document.getElementById(
-                    "umur"
-                ).value,
+                umur,
 
             cita:
-                document.getElementById(
-                    "cita"
-                ).value.trim(),
+                cita,
 
             hobi:
-                document.getElementById(
-                    "hobi"
-                ).value.trim(),
+                hobi,
 
             email:
-                document.getElementById(
-                    "email"
-                ).value.trim(),
+                email,
 
             password:
-                document.getElementById(
-                    "password"
-                ).value,
+                password,
 
             pinJadwal:
-                document.getElementById(
-                    "pinJadwal"
-                ).value,
+                pinJadwal,
 
             pinEdit:
-                document.getElementById(
-                    "pinEdit"
-                ).value
+                pinEdit
 
         };
 
@@ -445,21 +741,82 @@ document
 
         localStorage.setItem(
             "login",
-            "false"
+            "true"
         );
 
 
         alert(
-            "✅ Registrasi berhasil!"
+            "🎉 Akun berhasil dibuat!"
         );
 
 
         window.location.href =
-            "login.html";
+            "dashboard.html";
+
+    }
+);
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+function lihatPassword() {
+
+    const input =
+        document.getElementById(
+            "password"
+        );
+
+
+    if (
+        input.type === "password"
+    ) {
+
+        input.type =
+            "text";
 
     }
 
-);
+    else {
+
+        input.type =
+            "password";
+
+    }
+
+}
+
+
+/* =========================
+   PIN
+========================= */
+
+function lihatPIN(id) {
+
+    const input =
+        document.getElementById(
+            id
+        );
+
+
+    if (
+        input.type === "password"
+    ) {
+
+        input.type =
+            "text";
+
+    }
+
+    else {
+
+        input.type =
+            "password";
+
+    }
+
+}
 
 </script>
 
